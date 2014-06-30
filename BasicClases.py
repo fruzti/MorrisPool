@@ -83,11 +83,6 @@ def plotMousePath(mousePosition, numCols, numRows, name = 'Mouse'):
 
 def computeSpeed(mousePosition, convFactor = 1, fps = 30):
     """
-    Computes the mouse velocity to the radio specified in the convFactor.
-    @param mousePosition w/ a 2D Array with the mouse position
-    @param convFactor w/ a Float to convert px -> cm
-    @param fps Int w/ the video's fps.
-    @return Tupla w/ (SpeedX, SpeedY, TimeX, TimeY, TimeTotal)
     """
     
     pointX = mousePosition[0:,0]
@@ -136,7 +131,7 @@ def printReport(data, dataLabels, dataName, fileName, mode):
 ########################################################################
 from matplotlib.backends.backend_pdf import PdfPages
 
-def generateReport(mousePath, pathLength, convFactor = 1):
+def generateReport(mousePath, pathLength, swimTime, convFactor = 1):
         '''
         Generates the report of the current experiment.
         '''
@@ -199,6 +194,6 @@ def generateReport(mousePath, pathLength, convFactor = 1):
             pylab.close()
             
             printReport([pathLength], ['Distance in cm:'], 'Path Distance', fileName, 'a')
-        
+            printReport([pathLength/float(swimTime)], ['Avg Speed [cm/s]:'], 'Avegerage Swimming Speed [cm/s]', fileName, 'a')        
         print 'Reporte Concluido'
         print '--------------------------'

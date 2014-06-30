@@ -71,7 +71,7 @@ morrisPool.getRealDistance2(w.getPathName())
 
 mousePath = morrisPool.getMousePath()
 
-generateReport(mousePath, morrisPool.getRealDistance(), morrisPool.getConvFactor())
+generateReport(mousePath, morrisPool.getRealDistance(),  morrisPool.getVideoTimeInS(), morrisPool.getConvFactor())
 
 print 'Total Swimming Time[s]: ' + str(morrisPool.getVideoTimeInS())
 
