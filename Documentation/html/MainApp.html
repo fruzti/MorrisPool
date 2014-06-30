@@ -1,0 +1,209 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>MainApp.py &mdash; OpenFieldTest 2.1.4 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.1.4',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="OpenFieldTest 2.1.4 documentation" href="index.html" />
+    <link rel="up" title="Archivos de MorrisField" href="classes.html" />
+    <link rel="next" title="camTest.py" href="camTest.html" />
+    <link rel="prev" title="Archivos de MorrisField" href="classes.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="camTest.html" title="camTest.py"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="classes.html" title="Archivos de MorrisField"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">OpenFieldTest 2.1.4 documentation</a> &raquo;</li>
+          <li><a href="classes.html" accesskey="U">Archivos de MorrisField</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="mainapp-py">
+<span id="classes"></span><h1>MainApp.py<a class="headerlink" href="#mainapp-py" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="mainapp-object">
+<h2>MainApp(object)<a class="headerlink" href="#mainapp-object" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">MainApp</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+   <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">   Clase para la creación de la interfaz gráfica para la aplicación. Permite realizar el recorte del video para comenzar el análisis del video.</span>
+<span class="sd">   &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+<div class="section" id="mainapp">
+<h3><strong>MainApp</strong><a class="headerlink" href="#mainapp" title="Permalink to this headline">¶</a></h3>
+<p>MainApp constructor.</p>
+<p><strong>Python:</strong> <tt class="docutils literal"><span class="pre">MainApp()</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+     <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">     Inicia la interfaz gráfica y carga todos los Widgets necesarios para recortar el video.</span>
+<span class="sd">     &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="loadvideosequence">
+<h3>loadVideoSequence<a class="headerlink" href="#loadvideosequence" title="Permalink to this headline">¶</a></h3>
+<p>Carga el video desde la ruta en la que se encuentra dentro del equipo.</p>
+<p><strong>Python:</strong> <tt class="docutils literal"><span class="pre">loadVideoSequence()</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">loadVideoSequence</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+     <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">     Carga el video desde su locación en el equipo. Luego de cargarlo, continua la creación de la interfaz gráfica.</span>
+<span class="sd">     &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="createthirdlevel">
+<h3>createThirdLevel<a class="headerlink" href="#createthirdlevel" title="Permalink to this headline">¶</a></h3>
+<p>Crea el :tercer nivel: de la aplicación gráfica</p>
+<p><strong>Python:</strong> <tt class="docutils literal"><span class="pre">createThirdLevel(startInit,</span> <span class="pre">startEnd,</span> <span class="pre">stopInit,</span> <span class="pre">stopEnd)</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">createThirdLevel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">startInit</span><span class="p">,</span> <span class="n">startEnd</span><span class="p">,</span> <span class="n">stopInit</span><span class="p">,</span> <span class="n">stopEnd</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Crea el tercer nivel de la aplicación para continuar con el análisis.</span>
+<span class="sd">        startInit : Posición inicial para recortar el inicio del video.</span>
+<span class="sd">        startEnd  : Posición final para recortar el inicio del video.</span>
+<span class="sd">        stopStart : Posición inicial para recortar el final del video.</span>
+<span class="sd">        stopEnd : Posición final para recortar el final del video.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="startapp">
+<h3>startApp<a class="headerlink" href="#startapp" title="Permalink to this headline">¶</a></h3>
+<p>Comienza el análisis del video. Destruye la interfaz gráfica.</p>
+<p><strong>Python:</strong> <tt class="docutils literal"><span class="pre">startApp()</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">startApp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Comienza el análisis del video. Destruye la interfaz gráfica.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="getvideosequence">
+<h3>getVideoSequence<a class="headerlink" href="#getvideosequence" title="Permalink to this headline">¶</a></h3>
+<p>Regresa la lista que contiene la lista de frames con el video.</p>
+<p><strong>Python:</strong> Lista : <tt class="docutils literal"><span class="pre">getVideoSequence()</span></tt></p>
+</div>
+<div class="section" id="getsequenceboundaries">
+<h3>getSequenceBoundaries<a class="headerlink" href="#getsequenceboundaries" title="Permalink to this headline">¶</a></h3>
+<p>Regresa una tupla con la información de inicio y final del video.
+Numero de Frame.</p>
+<p><strong>Python:</strong> Tupla : <tt class="docutils literal"><span class="pre">getSequenceBoundaries()</span></tt></p>
+</div>
+<div class="section" id="getpathname">
+<h3>getPathName<a class="headerlink" href="#getpathname" title="Permalink to this headline">¶</a></h3>
+<p>Regresa la información de ruta del archivo del video.</p>
+<p><strong>Python:</strong> String : <tt class="docutils literal"><span class="pre">getPathName()</span></tt></p>
+</div>
+<div class="section" id="startrotutine">
+<h3>startRotutine<a class="headerlink" href="#startrotutine" title="Permalink to this headline">¶</a></h3>
+<p>Inicia el ciclo de inicio y actualización de la interfaz gráfica del video.</p>
+<p><strong>Python:</strong> <tt class="docutils literal"><span class="pre">startRotutine()</span></tt></p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">MainApp.py</a><ul>
+<li><a class="reference internal" href="#mainapp-object">MainApp(object)</a><ul>
+<li><a class="reference internal" href="#mainapp"><strong>MainApp</strong></a></li>
+<li><a class="reference internal" href="#loadvideosequence">loadVideoSequence</a></li>
+<li><a class="reference internal" href="#createthirdlevel">createThirdLevel</a></li>
+<li><a class="reference internal" href="#startapp">startApp</a></li>
+<li><a class="reference internal" href="#getvideosequence">getVideoSequence</a></li>
+<li><a class="reference internal" href="#getsequenceboundaries">getSequenceBoundaries</a></li>
+<li><a class="reference internal" href="#getpathname">getPathName</a></li>
+<li><a class="reference internal" href="#startrotutine">startRotutine</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="classes.html"
+                        title="previous chapter">Archivos de MorrisField</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="camTest.html"
+                        title="next chapter">camTest.py</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/MainApp.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="camTest.html" title="camTest.py"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="classes.html" title="Archivos de MorrisField"
+             >previous</a> |</li>
+        <li><a href="index.html">OpenFieldTest 2.1.4 documentation</a> &raquo;</li>
+          <li><a href="classes.html" >Archivos de MorrisField</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Mario Coutino.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

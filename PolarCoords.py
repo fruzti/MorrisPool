@@ -25,6 +25,9 @@ import numpy as np
 import math
 
 class VectorPolar:
+    '''
+    Helper Class for Target's Ghosts Creation.
+    '''
     
     def __init__(self, x, y, centre):
         '''

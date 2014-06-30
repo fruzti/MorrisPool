@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Getting started &mdash; OpenFieldTest 2.1.4 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.1.4',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="OpenFieldTest 2.1.4 documentation" href="index.html" />
+    <link rel="next" title="Software Overview" href="usage.html" />
+    <link rel="prev" title="Estructura de MorrisPool" href="struc.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="usage.html" title="Software Overview"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="struc.html" title="Estructura de MorrisPool"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">OpenFieldTest 2.1.4 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="getting-started">
+<span id="id1"></span><h1>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="installing-enthought-canopy">
+<span id="installing-docdir"></span><h2>Installing Enthought Canopy<a class="headerlink" href="#installing-enthought-canopy" title="Permalink to this headline">¶</a></h2>
+<p>You may already have <a class="reference external" href="https://www.python.org">python</a>
+installed &#8211; you can check by doing:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ python
+</pre></div>
+</div>
+<p>If that is the case (or not) you should download and install <a class="reference external" href="https://www.enthought.com/downloads/">Enthought Canopy&#8217;s Python</a> 2.7 distribution.</p>
+<p>Enthought Canopy&#8217;s is a multi-platform python distribution, and it has several licensed products. The <strong>free</strong> option is enough for running the code in any machine.</p>
+</div>
+<div class="section" id="installing-opencv-2-4-6">
+<h2>Installing OpenCV 2.4.6 &gt;<a class="headerlink" href="#installing-opencv-2-4-6" title="Permalink to this headline">¶</a></h2>
+<p>Due performance issues the image processing part of the software the open library <strong>OpenCV</strong> is used. To download the latest version click <a class="reference external" href="http://opencv.org">here</a>.</p>
+<p>For most operating systems (OS) the process to link openCV to python is straight forward, but when using Enthought Canopy IDE it becomes a cucumbersome with Linux, specially.</p>
+<p>The recommended SO for this application is Windows, but if you can link OpenCV with python in any other SO it will work smoothly.</p>
+<p><strong>Note:</strong> After downloading OpenCV perform the next steps.</p>
+<div class="section" id="linking-opencv-and-canopy-in-windows">
+<h3>Linking OpenCV and Canopy in Windows<a class="headerlink" href="#linking-opencv-and-canopy-in-windows" title="Permalink to this headline">¶</a></h3>
+<p>It is just as simple as copy and paste.</p>
+<p>1. Download Python, Numpy, OpenCV from their official sites.
+<em>(If you already use Canopy there is not need to download Numpy)</em></p>
+<ol class="arabic" start="2">
+<li><p class="first">Extract OpenCV (will be extracted to a folder opencv)</p>
+</li>
+<li><p class="first">Copy ..opencvbuildpythonx862.7cv2.pyd</p>
+</li>
+<li><p class="first">Paste it in C:Python27Libsite-packages</p>
+</li>
+<li><p class="first">Open Python IDLE or terminal, and type:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">cv2</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p><strong>Note:</strong> If you decided to <strong>NOT</strong> work with Canopy the above steps are keep just with the difference that <a class="reference external" href="http://wiki.scipy.org/PyLab">PyLab</a> and <a class="reference external" href="http://www.numpy.org">Numpy</a> must be in your system.</p>
+</div>
+</div>
+<div class="section" id="using-the-software">
+<h2>Using the Software<a class="headerlink" href="#using-the-software" title="Permalink to this headline">¶</a></h2>
+<p>When all the dependencies are installed in your system and OpenCV is working correctly with Canopy you are ready to use the software.
+To run the application, after setting up the experiment, you must have the files mentioned in MorrisPool’s Structure in your working directory.</p>
+<p>Starting the application is pretty easy, just press <strong>cntrl + r</strong> with the file <strong>MainFile.py</strong> open.</p>
+<ul class="simple">
+<li>Now, you should put the path of your video into the text entry in the current window and press <strong>LoadVideo</strong>.</li>
+<li>Close all the remaining windows to continue</li>
+<li>In the new window select, using the sliders, where to cut the video and press in the button <strong>StartAnalysis</strong></li>
+<li>When the analysis is finish, a quest will emerge in console, depending of the type of analysis press <strong>Y</strong> or <strong>N</strong> for the transfer experiment.</li>
+<li>After you selected the type of trial, a new window will pop-up and you will have, now, to select where the target position is using the mouse and clicking in the <em>Four Corners Points</em></li>
+<li>To finish the analysis press <em>ESC</em> and wait for the results.</li>
+<li>All, the images and the .txt, will be allocated on your user folder at the end of the analysis.</li>
+</ul>
+<p><em>Note</em></p>
+<p>If you are using a <strong>Transfer Experiment</strong> you should look on the <strong>DrawOutput</strong> page to see the instruction for creating the image.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Getting started</a><ul>
+<li><a class="reference internal" href="#installing-enthought-canopy">Installing Enthought Canopy</a></li>
+<li><a class="reference internal" href="#installing-opencv-2-4-6">Installing OpenCV 2.4.6 &gt;</a><ul>
+<li><a class="reference internal" href="#linking-opencv-and-canopy-in-windows">Linking OpenCV and Canopy in Windows</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#using-the-software">Using the Software</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="struc.html"
+                        title="previous chapter">Estructura de MorrisPool</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="usage.html"
+                        title="next chapter">Software Overview</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/install.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="usage.html" title="Software Overview"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="struc.html" title="Estructura de MorrisPool"
+             >previous</a> |</li>
+        <li><a href="index.html">OpenFieldTest 2.1.4 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Mario Coutino.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

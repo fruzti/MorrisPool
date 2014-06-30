@@ -1,0 +1,558 @@
+.. _classes:
+
+BasicClases.py
+====================
+
+Position(object)
+--------------------
+
+.. code-block:: python
+
+	class Position(object):
+	   '''
+	   Position Class with the information of the 2D coordinates (x,y).
+	   '''
+	
+**Class Attributes:**
+
++------------+------------+
+|    Type    |    Name    |
++============+============+
+|    float   |      x     |
++------------+------------+
+|    float   |      y     |
++------------+------------+
+
+
+**Position**
+++++++++++++++++++++
+
+Position constructor.
+
+**Python:** ``Position(x,y)``
+
+.. code-block:: python
+
+    def __init__(self,x,y):
+	 '''
+	 Init the position instance w/
+	  x -> float x axis position
+	  y -> float y axis position
+	 '''
+	
+movePosition
+++++++++++++++++++++
+
+Move the current Position a (dx,dy) distance.
+
+**Python:** ``movePosition(dx,dy)``
+
+.. code-block:: python
+
+    def movePosition(self,dx,dy):
+	 '''
+	 Move the current Position a (dx,dy) distance.
+	  dx -> float distance to move the Position in the x axis
+	  dy -> float distance to move the Position in the y axis
+	  return a new Position instances
+	 '''
+	
+getDistance
+++++++++++++++++++++
+
+Calculates the distance between two points.
+
+**Python:** ``getDistance(other)``
+
+.. code-block:: python
+
+	def getDistance(self, other):
+	        '''
+	        Computes the euclidean distances between 'self' and other.
+	            other -> Position object
+	        return float w/ the distance between points.
+	        '''
+getX
+++++++++++++++++++++
+
+Return x position.
+
+**Python:** Int : ``getX()``
+
+getY
+++++++++++++++++++++
+
+Return y position.
+
+**Python:** Int : ``getY()``
+
+Mouse(object)
+--------------------
+
+**Mouse**
+++++++++++++++++++++
+
+Mouse Class constructor
+
+**Python:** ``Mouse(name, color, pos)``
+
+.. code-block:: python
+
+	def __init__(self,name,color,pos):
+	        '''
+	        Init a 'Mouse' instance with:
+	            name -> string
+	            color -> string
+	            pos -> a Position class instance w/ (x,y)
+	        '''
+
+**Class Attributes:**
+
++------------+------------+
+|    Type    |    Name    |
++============+============+
+|   String   |    name    |
++------------+------------+
+|   String   |    color   |
++------------+------------+
+|  Position  |     pos    |
++------------+------------+
+
+updatePos
+++++++++++++++++++++
+
+Updates the mouse's position
+
+**Python:** ``-``
+
+.. code-block:: python
+
+	def updatePos(self,newPos):
+	        '''
+	        Updates the current position of the Mouse with:
+	            newPos -> the new Position class instance (x,y)
+	        '''
+
+getName
+++++++++++++++++++++
+
+Return the mouse's name.
+
+**Python:** String : ``getName()``
+
+getPosition
+++++++++++++++++++++
+
+Return the mouse's position.
+
+**Python:** Position : ``getPosition()``
+
+getColor
+++++++++++++++++++++
+
+Return the mouse's color.
+
+**Python:** String : ``getColor``
+
+ColorMouse(Mouse)
+--------------------
+
+.. code-block:: python
+
+	class ColorMouse(Mouse):
+	    '''
+	    ColorMouse class with serves as a template class for WhiteMouse and
+	    BlackMouse, both subclasses of Mouse.
+	    '''
+	
+**ColorMouse**
+++++++++++++++++++++
+
+ColorMouse Class Constructor.
+
+**Python:** ``ColorMouse(name, color, pos)``
+
+.. code-block:: python
+
+	def __init__(self, name, color, pos):
+	        '''
+	        Calls the super class constructor without any modification.
+	        '''
+
+findMouse
+++++++++++++++++++++
+
+Template method for different color mouse routines.
+
+**Python:** Mat : ``findMouse(image)``
+
+.. code-block:: python
+
+	def findMouse(self, image):
+	        '''
+	        Abstract method to override in the children classes. It finds
+	        the position of the desired mouse by parsing an image.
+	        '''
+	
+
+WhiteMouse(ColorMouse)
+--------------------
+
+.. code-block:: python
+
+	class WhiteMouse(ColorMouse):
+	    '''
+	    WhiteMouse class which implements a white mouse.
+	    '''
+	
+**Class Attributes:**
+
++------------+------------+
+|    Type    |    Name    |
++============+============+
+|   Int      | thMouse    |
++------------+------------+
+
+**WhiteMouse**
+++++++++++++++++++++
+
+Default class constructor.
+
+**Python:** ``WhiteMouse(pos,thMouse = 100)``
+
+.. code-block:: python
+
+	def __init__(self,pos,thMouse = 100):
+	        '''
+	        WhiteMouse constructor.
+	            pos <- Initial position of the mouse
+	            thMouse <- Segmentation threshold (default: 100)
+	        '''
+
+findMouse
+++++++++++++++++++++
+
+Implemented Abstract Static Method for the segmentation of the mouse.
+
+**Python:** Image : ``findMouse(gray, thMouse = 100)``
+
+.. code-block:: python
+
+	@staticmethod
+	    def findMouse(gray, thMouse = 100):
+	        '''
+	        Segments the gray-scale image 'gray' to detect where is the mouse in  
+	        the image.
+	        returns image with the segmentation's result.
+	        '''
+
+BlackMouse(ColorMouse)
+--------------------
+
+**Not implemented yet!!!***
+
+.. code-block:: python
+
+	class BlackMouse(ColorMouse):
+	    '''
+	    BlackMouse class which implements a black mouse.
+	    '''
+	
+**BlackMouse**
+++++++++++++++++++++
+
+Default class constructor.
+
+**Python:** ``BlackMouse(pos,thMouse = 100)``
+
+.. code-block:: python
+
+	def __init__(self,pos,thMouse = 100):
+	        '''
+	        BlackMouse constructor.
+	            pos <- Initial position of the mouse
+	            thMouse <- Segmentation threshold (default: 100)
+	        '''
+
+findMouse
+++++++++++++++++++++
+
+Implemented Abstract Static Method for the segmentation of the mouse.
+
+**Python:** Image : ``findMouse(gray, thMouse = 100)``
+
+.. code-block:: python
+
+	@staticmethod
+	    def findMouse(gray, thMouse = 100):
+	        '''
+	        Segments the gray-scale image 'gray' to detect where is the mouse in  
+	        the image.
+	        returns image with the segmentation's result.
+	        '''
+
+Tile(object)
+--------------------
+
+.. code-block:: python
+
+	class Tile(object):
+	    '''
+	    Each of the delimeted squares inside the Field used for the test.
+	    '''
+	
+**Class Attributes:**
+
++------------+----------------+
+|    Type    |    Name        |
++============+================+
+|Position    | upperCorner    |
++------------+----------------+
+| Int        | width          |
++------------+----------------+
+|   Int      | height         |
++------------+----------------+
+| List[Int]  | bounds         |
++------------+----------------+
+| Int        | timesInTile    |
++------------+----------------+
+
+**Tile**
+++++++++++++++++++++
+
+Default class constructor.
+
+**Python:** ``Tile(upperCorner, width, height)``
+
+.. code-block:: python
+
+	def __init__(self, upperCorner, width, height):
+	        '''
+	        Init the Tile object w/
+	            upperCorner -> Position instance with the upper corner point of the tile
+	            width -> float Width of the Tile
+	            height -> float Height of the Tile
+	        '''
+
+checkTile
+++++++++++++++++++++
+
+Wrapper method to find if the mouse is over the tile.
+
+**Python:** Boolean : ``checkTile(pos)``
+
+.. code-block:: python
+
+	def checkTile(self,pos):
+	        '''
+	        Checks if the Position 'pos' is inside the Tile and if it is true
+	        increase timesInTile.
+	        return True if pos is inside, False otherwise.
+	        '''
+	
+isInTile
+++++++++++++++++++++
+
+Returns true if the mouse is inside the tile.
+
+**Python:** Boolean : ``isInTile(pos)``
+
+.. code-block:: python
+
+	def isInTile(self,pos):
+	        '''
+	        Returns True if 'pos' is inside the Tile or False otherwise.
+	        '''
+
+getTimesInTile
+++++++++++++++++++++
+
+Return the amount of time in the Tile
+
+**Python:** Int : ``getTimesInTile()``
+
+getTileBounds
+++++++++++++++++++++
+
+Return list with the four corner positions that delimit the tile.
+
+**Python:** List[Int] : ``getTileBounds()``
+
+setTimesInTile
+++++++++++++++++++++
+
+Set an arbitrary number of 'times' in timesInTile.
+
+**Python:** ``setTimesInTile(times)``
+
+clearTimesInTile
+++++++++++++++++++++
+
+Reset timesInTile.
+
+**Python:** Int : ``clearTimesInTile()``
+	
+Field(object)
+--------------------
+
+.. code-block:: python
+
+	class Field(object):
+	    '''
+	    Field Class that contains the test Mouse and a set of Tiles which conform
+	    the entire Field.
+	    '''
+	
+**Field**
+++++++++++++++++++++
+
+Default class constructor.
+
+**Python:** ``Field(numCols, numRows, gridWidth, gridHeight, mouse)``
+
+.. code-block:: python
+
+	def __init__(self, numCols, numRows, gridWidth, gridHeight, mouse):
+	        '''
+	        Init the Field Object w/ the number of tiles and the test mouse.
+	            numCols -> int with the number of colums in the grid arragement
+	            numRows -> int with the number of rows in the grid arragement
+	            gridWidth -> int width of each of the tiles in the grid
+	            gridHeight -> int heigh of each of the tiles in the grid
+	            mouse -> Mouse instance that represent the test subject.
+	        '''
+
+**Class Attributes:**
+
++------------+----------------+
+|    Type    |    Name        |
++============+================+
+|Int         | gridWidth      |
++------------+----------------+
+| Int        | gridHeigtht    |
++------------+----------------+
+| Int        | rightBound     |
++------------+----------------+
+| Int        | lowerBound     |
++------------+----------------+
+| Mouse      | testSubject    |
++------------+----------------+
+| Int        | numCols        |
++------------+----------------+
+| Int        | numRows        |
++------------+----------------+
+| Int        | numOfTiles     |
++------------+----------------+
+| Dict(T,I)  | tiles          |
++------------+----------------+
+| Dict(T,I)  | timesInTiles   |
++------------+----------------+
+| Tile       | currTile       |
++------------+----------------+
+
+checkTile
+++++++++++++++++++++
+
+Wrapper method to find if the mouse is over the tile.
+
+**Python:** Boolean : ``checkTile(pos)``
+
+.. code-block:: python
+
+	def checkTile(self,pos):
+	        '''
+	        Checks if the Position 'pos' is inside the Tile and if it is true
+	        increase timesInTile.
+	        return True if pos is inside, False otherwise.
+	        '''
+	
+isInField
+++++++++++++++++++++
+
+Returns true if the mouse is inside the field.
+
+**Python:** Boolean : ``isInField(pos)``
+
+.. code-block:: python
+
+	def isInField(self, pos):
+	        '''
+	        Checks if it is a valid position inside the field.
+	        returns True if pos is inside Field or False otherwise.
+	        '''
+
+updateMouse
+++++++++++++++++++++
+
+Returns true if the mouse is inside the field.
+
+**Python:** Position : ``updateMouse(newPos)``
+
+.. code-block:: python
+
+	def updateMouse(self, newPos):
+	        '''
+	        Wrapper function for updates the 'testSubject' position in the maze.
+	            newPos <- Position object to where the mouse is going to move.
+	        return Position w/ the new localization of the mouse
+	        '''
+	
+checkAllTiles
+++++++++++++++++++++
+
+Returns the tile in which the mouse is found.
+
+**Python:** Tile : ``checkAllTiles()``
+
+.. code-block:: python
+
+	def checkAllTiles(self):
+	        '''
+	        Checks all tiles in the field to find in which one the mouse is and 
+	        increase the counter for continuos stays in the same tile. Assumes that
+	        the mouse is a valid position inside the field.
+	        Returns current tile 
+	        '''
+	
+getNumOfTiles
+++++++++++++++++++++
+
+Return the amount of tiles in field.
+
+**Python:** Int : ``getNumOfTiles()``
+
+getTestSubject
+++++++++++++++++++++
+
+Return test subject object.
+
+**Python:** Mouse : ``getTestSubject()``
+
+getTiles
+++++++++++++++++++++
+
+Return available tiles.
+
+**Python:** Dictionary[(x,y),Tile] : ``getTiles(times)``
+
+getTimesInTiles
+++++++++++++++++++++
+
+Return timesInTiles
+
+**Python:** Dictionary[(x,y), Int] : ``getTimesInTiles()``
+
+getCurrTile
+++++++++++++++++++++
+
+Return currTile
+
+**Python:** Tile : ``getCurrTile()``
+
+getFieldBounds
+++++++++++++++++++++
+
+Return right bound and lower bound.
+
+**Python:** List : ``getFieldBounds()``
+

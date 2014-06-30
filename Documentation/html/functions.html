@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Funciones de MorrisPool &mdash; OpenFieldTest 2.1.4 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.1.4',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="OpenFieldTest 2.1.4 documentation" href="index.html" />
+    <link rel="next" title="OpenFieldTest’s Structure" href="structure.html" />
+    <link rel="prev" title="DrawOutput.py" href="DrawOutput.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="structure.html" title="OpenFieldTest’s Structure"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="DrawOutput.html" title="DrawOutput.py"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">OpenFieldTest 2.1.4 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="funciones-de-morrispool">
+<span id="getting-started"></span><h1>Funciones de MorrisPool<a class="headerlink" href="#funciones-de-morrispool" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="descripcion-de-funciones">
+<h2>Descripción de Funciones<a class="headerlink" href="#descripcion-de-funciones" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="computespeed">
+<h3>computeSpeed<a class="headerlink" href="#computespeed" title="Permalink to this headline">¶</a></h3>
+<p>Calcula y regresa las velocidades instantáneas ( en el eje X y Y ) del ratón durante su recorrido.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">computeSpeed</span><span class="p">(</span><span class="n">startPosition</span><span class="p">,</span><span class="n">timeSteps</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Computes the mouse velocity to the radio specified in the convFactor.</span>
+<span class="sd">    @param mousePosition w/ a 2D Array with the mouse position</span>
+<span class="sd">    @param convFactor w/ a Float to convert px -&gt; cm</span>
+<span class="sd">    @param fps Int w/ the video&#39;s fps.</span>
+<span class="sd">    @return Tupla w/ (SpeedX, SpeedY, TimeX, TimeY, TimeTotal)</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="plotmousepath">
+<h3>plotMousePath<a class="headerlink" href="#plotmousepath" title="Permalink to this headline">¶</a></h3>
+<p>Grafica el recorrido descrito por el ratón durante el experimento.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">plotMousePath</span><span class="p">(</span><span class="n">mousePosition</span><span class="p">,</span> <span class="n">numCols</span><span class="p">,</span> <span class="n">numRows</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&#39;Mouse&#39;</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Plots the tracking of the mouse&#39;s position over the simulation.</span>
+<span class="sd">    mousePosition -&gt; List with the Position for each timeStep</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="printreport">
+<h3>printReport<a class="headerlink" href="#printreport" title="Permalink to this headline">¶</a></h3>
+<p>Función de apoyo para escribir en un .txt</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">printReport</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">dataLabels</span><span class="p">,</span> <span class="n">dataName</span><span class="p">,</span> <span class="n">fileName</span><span class="p">,</span> <span class="n">mode</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Helper function to write into the .txt report file.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="generatereport">
+<h3>generateReport<a class="headerlink" href="#generatereport" title="Permalink to this headline">¶</a></h3>
+<p>Función que genera el reporte en PDF del experimento actual.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">printReport</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">dataLabels</span><span class="p">,</span> <span class="n">dataName</span><span class="p">,</span> <span class="n">fileName</span><span class="p">,</span> <span class="n">mode</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Generates the report of the current experiment.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Funciones de MorrisPool</a><ul>
+<li><a class="reference internal" href="#descripcion-de-funciones">Descripción de Funciones</a><ul>
+<li><a class="reference internal" href="#computespeed">computeSpeed</a></li>
+<li><a class="reference internal" href="#plotmousepath">plotMousePath</a></li>
+<li><a class="reference internal" href="#printreport">printReport</a></li>
+<li><a class="reference internal" href="#generatereport">generateReport</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="DrawOutput.html"
+                        title="previous chapter">DrawOutput.py</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="structure.html"
+                        title="next chapter">OpenFieldTest&#8217;s Structure</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/functions.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="structure.html" title="OpenFieldTest’s Structure"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="DrawOutput.html" title="DrawOutput.py"
+             >previous</a> |</li>
+        <li><a href="index.html">OpenFieldTest 2.1.4 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Mario Coutino.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,557 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>MainClasses.py &mdash; OpenFieldTest 2.1.4 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.1.4',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="OpenFieldTest 2.1.4 documentation" href="index.html" />
+    <link rel="up" title="OpenField’s Classes" href="classes.html" />
+    <link rel="next" title="OpenField’s Functions" href="functions.html" />
+    <link rel="prev" title="camTest.py" href="camTest.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="functions.html" title="OpenField’s Functions"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="camTest.html" title="camTest.py"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">OpenFieldTest 2.1.4 documentation</a> &raquo;</li>
+          <li><a href="classes.html" accesskey="U">OpenField&#8217;s Classes</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="mainclasses-py">
+<span id="classes"></span><h1>MainClasses.py<a class="headerlink" href="#mainclasses-py" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="mainclass-object">
+<h2>MainClass(object)<a class="headerlink" href="#mainclass-object" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">MainClass</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Main Class where all the processing is carried on. From here is possible to</span>
+<span class="sd">    call the rest of the routines to detect the mouse and its position in the</span>
+<span class="sd">    image.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+<p><strong>Class Attributes:</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="47%" />
+<col width="53%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Type</th>
+<th class="head">Name</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Double</td>
+<td>segPerFrame</td>
+</tr>
+<tr class="row-odd"><td>List[Matrix]</td>
+<td>videoSequence</td>
+</tr>
+<tr class="row-even"><td>Int</td>
+<td>thMouse</td>
+</tr>
+<tr class="row-odd"><td>Int</td>
+<td>thField</td>
+</tr>
+<tr class="row-even"><td>Int</td>
+<td>maxX</td>
+</tr>
+<tr class="row-odd"><td>Int</td>
+<td>minX</td>
+</tr>
+<tr class="row-even"><td>Int</td>
+<td>maxY</td>
+</tr>
+<tr class="row-odd"><td>Int</td>
+<td>minX</td>
+</tr>
+<tr class="row-even"><td>List[Position]</td>
+<td>Centroid</td>
+</tr>
+<tr class="row-odd"><td>Matrix</td>
+<td>fieldImg</td>
+</tr>
+<tr class="row-even"><td>Matrix</td>
+<td>mouseImg</td>
+</tr>
+<tr class="row-odd"><td>Matrix</td>
+<td>procImg</td>
+</tr>
+<tr class="row-even"><td>Field</td>
+<td>field</td>
+</tr>
+<tr class="row-odd"><td>Class</td>
+<td>typeOfMouse</td>
+</tr>
+<tr class="row-even"><td>Matrix</td>
+<td>currImg</td>
+</tr>
+<tr class="row-odd"><td>Mouse</td>
+<td>mouse</td>
+</tr>
+<tr class="row-even"><td>String</td>
+<td>name</td>
+</tr>
+<tr class="row-odd"><td>Int</td>
+<td>numCols</td>
+</tr>
+<tr class="row-even"><td>Int</td>
+<td>numRows</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="mainclass">
+<h3><strong>MainClass</strong><a class="headerlink" href="#mainclass" title="Permalink to this headline">¶</a></h3>
+<p>MainClass default constructor.</p>
+<p><strong>Python:</strong> <tt class="docutils literal"><span class="pre">MainClass(self,</span> <span class="pre">videoSequence,</span> <span class="pre">typeOfMouse,</span> <span class="pre">numCols,</span> <span class="pre">numRows,</span> <span class="pre">fps</span> <span class="pre">=</span> <span class="pre">30,</span> <span class="pre">thMouse</span> <span class="pre">=</span> <span class="pre">100,</span> <span class="pre">thField</span> <span class="pre">=</span> <span class="pre">30)</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">videoSequence</span><span class="p">,</span> <span class="n">typeOfMouse</span><span class="p">,</span> <span class="n">numCols</span><span class="p">,</span> <span class="n">numRows</span><span class="p">,</span> <span class="n">fps</span> <span class="o">=</span> <span class="mi">30</span><span class="p">,</span> <span class="n">thMouse</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">thField</span> <span class="o">=</span> <span class="mi">30</span><span class="p">):</span>
+            <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">            Init method of the MainClass and initilized the desired &#39;typeOfMouse&#39;</span>
+<span class="sd">            mouse and the field&#39;s grid.</span>
+<span class="sd">                videoSequence -&gt; list with the sequence of frames to analize</span>
+<span class="sd">                typeOfMouse -&gt; classType of the mouse that it is going to be detected</span>
+<span class="sd">                numCols -&gt; int number of colums in the grid</span>
+<span class="sd">                numrows -&gt; int number of rows in the grid</span>
+<span class="sd">            &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="cvtgray">
+<h3>cvtGray<a class="headerlink" href="#cvtgray" title="Permalink to this headline">¶</a></h3>
+<p>Convert the format of currImg to gray scale.</p>
+<p><strong>Python:</strong> <tt class="docutils literal"><span class="pre">cvtGray()</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">cvtGray</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">            Converts &#39;currImg&#39; to gray-scale if it is from a different type.</span>
+<span class="sd">            &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="preimg">
+<h3>preImg<a class="headerlink" href="#preimg" title="Permalink to this headline">¶</a></h3>
+<p>Applies some preprocessing to the acquired image.</p>
+<p><strong>Python:</strong> <tt class="docutils literal"><span class="pre">preImg()</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">preImg</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Performs several operations with the image to adjust the quality</span>
+<span class="sd">    of the image and smooth it too.</span>
+<span class="sd">    It also detects and updates the field&#39;s boundaries to compute the</span>
+<span class="sd">    ROI in the image to be processed.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="findmouse">
+<h3>findMouse<a class="headerlink" href="#findmouse" title="Permalink to this headline">¶</a></h3>
+<p>Wrapper function to segment the test subject (mouse).</p>
+<p><strong>Python:</strong> <tt class="docutils literal"><span class="pre">findMouse()</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">findMouse</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">            Calls the static method /findMouse/ of the &#39;typeOfMouse&#39; to</span>
+<span class="sd">            search for the mouse in the image, and updates the &#39;mouseimg&#39; in</span>
+<span class="sd">            the class.</span>
+<span class="sd">            &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="isolatemouse">
+<h3>isolateMouse<a class="headerlink" href="#isolatemouse" title="Permalink to this headline">¶</a></h3>
+<p>Processes the image to remove all artefacts and isolate the test subject.</p>
+<p><strong>Python:</strong> <tt class="docutils literal"><span class="pre">isolateMouse()</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">isolateMouse</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">            Optional method used to remove the horizontal and vertical</span>
+<span class="sd">            bars that are present in some of the test videos. It performs a series</span>
+<span class="sd">            of morphological operations with different kernels {[1,1,1,1,1] ,</span>
+<span class="sd">            [1,1,1,1,1]&#39; , ones(5,5)} to enhance the result in the detection of</span>
+<span class="sd">            the mouse&#39;s position.</span>
+<span class="sd">            Updates the procImg that is the result of a &#39;and&#39; operation between</span>
+<span class="sd">            the &#39;fieldImg&#39; (ROI) and the &#39;mouseImg&#39;.</span>
+<span class="sd">            &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="computemousecentroid">
+<h3>computeMouseCentroid<a class="headerlink" href="#computemousecentroid" title="Permalink to this headline">¶</a></h3>
+<p>Main routine to acquire the mouse position.</p>
+<p><strong>Python:</strong> <tt class="docutils literal"><span class="pre">computeMouseCentroid(initRun</span> <span class="pre">=</span> <span class="pre">False)</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">computeMouseCentroid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">initRun</span> <span class="o">=</span> <span class="bp">False</span><span class="p">):</span>
+            <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">            Computes the centroid of the contour found in the &#39;procImg&#39; where</span>
+<span class="sd">            is expected to exist only one: the mouse.</span>
+<span class="sd">            The method uses the moments&#39; approach to computes the centroid of the</span>
+<span class="sd">            object and updates the list &#39;Centroid&#39; with the result.</span>
+<span class="sd">            Also, a circle is drawn in the &#39;currImg&#39; to see the result of the</span>
+<span class="sd">            process.</span>
+<span class="sd">                initRun -&gt; boolean to specify if the initilization routine is going</span>
+<span class="sd">                            to take place. By default is set to False.</span>
+<span class="sd">            &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="applyprocessing">
+<h3>applyProcessing<a class="headerlink" href="#applyprocessing" title="Permalink to this headline">¶</a></h3>
+<p>Wrapper function to process current frame.</p>
+<p><strong>Python:</strong> <tt class="docutils literal"><span class="pre">applyProcessing()</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">applyProcessing</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">initRun</span> <span class="o">=</span> <span class="bp">False</span><span class="p">):</span>
+            <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">            Wrapper function to perform all the operation in the &#39;currImg&#39;</span>
+<span class="sd">            &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="grabnextframefromwebcam">
+<h3>grabNextFrameFromWebcam<a class="headerlink" href="#grabnextframefromwebcam" title="Permalink to this headline">¶</a></h3>
+<p>Acquires new frame from device.</p>
+<p><strong>Python:</strong> <em>Raise Exception</em> : <tt class="docutils literal"><span class="pre">grabNextFrameFromWebcam(frame)</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">grabNextFrameFromWebcam</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">frame</span><span class="p">):</span>
+            <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">            Tries to catch a new frame and assign it to &#39;self.currImg&#39; raising</span>
+<span class="sd">            an error if an exception is encountered.</span>
+<span class="sd">            &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="acquirefromwebcam">
+<h3>acquireFromWebCam<a class="headerlink" href="#acquirefromwebcam" title="Permalink to this headline">¶</a></h3>
+<p>Wrapper function to acquire new frame from attached device.</p>
+<p><strong>Python:</strong> <tt class="docutils literal"><span class="pre">acquireFromWebCam(cam)</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">acquireFromWebCam</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cam</span><span class="p">):</span>
+            <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">            Wrapper function which perform the analysis of the frame stream</span>
+<span class="sd">            in real time until the &#39;cam.stopRecording()&#39; function is called.</span>
+<span class="sd">            At that time, all the frames recorded are handled to the field</span>
+<span class="sd">            inside the MainClass for future usage.</span>
+<span class="sd">            &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="initfromwebcam">
+<h3>initFromWebCam<a class="headerlink" href="#initfromwebcam" title="Permalink to this headline">¶</a></h3>
+<p>Init the processing assuming that it will perform online. (For fast processors)</p>
+<p><strong>Python:</strong> <tt class="docutils literal"><span class="pre">initFromWebCam(cam)</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">initFromWebCam</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cam</span><span class="p">):</span>
+            <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">            Init function which take the firs mouse&#39;s image available and computes</span>
+<span class="sd">            the initial position of the instance. Also, init the mouse field of the</span>
+<span class="sd">            class and change the name of the current experiment.</span>
+<span class="sd">            The acquisition only starts after a &#39;keyEvent = &lt;s&gt;&#39;, that is when the</span>
+<span class="sd">            recording starts.</span>
+<span class="sd">            &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="runappwebcam">
+<h3>runAppWebCam<a class="headerlink" href="#runappwebcam" title="Permalink to this headline">¶</a></h3>
+<p>Main routine to process the experiment &#8220;online&#8221;. (Same time as acquisition)</p>
+<p><strong>Python:</strong> <tt class="docutils literal"><span class="pre">runAppWebCam(cam)</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">runAppWebCam</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cam</span><span class="p">):</span>
+            <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">            Main routine of the class that perform all the operations to</span>
+<span class="sd">            localise the mouse, computes its position and generates the report.</span>
+<span class="sd">            It use a RecordCam Object &#39;cam&#39; to make the acquisition directly</span>
+<span class="sd">            from the source.</span>
+<span class="sd">            &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="framegenerator">
+<h3>frameGenerator<a class="headerlink" href="#framegenerator" title="Permalink to this headline">¶</a></h3>
+<p>Generator function to strip frames from videoSequence.</p>
+<p><strong>Python:</strong> <em>yield</em> Image : <tt class="docutils literal"><span class="pre">frameGenerator()</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">frameGenerator</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">            Generator function to acquire each of the frames</span>
+<span class="sd">            in &#39;self.videoSequence&#39;</span>
+<span class="sd">            returns frame</span>
+<span class="sd">            &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="grabnextframefromsequence">
+<h3>grabNextFrameFromSequence<a class="headerlink" href="#grabnextframefromsequence" title="Permalink to this headline">¶</a></h3>
+<p>Routine to acquire next frame from the generator.</p>
+<p><strong>Python:</strong> Bool : <tt class="docutils literal"><span class="pre">grabNextFrameFromSequence(f)</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">grabNextFrameFromSequence</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+            <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">            Calls the frame-generator from the &#39;self.videoSequence&#39; until</span>
+<span class="sd">            it exhausts all the available frames.</span>
+<span class="sd">            return boolean with True if there is an available frame or False</span>
+<span class="sd">            otherwise.</span>
+<span class="sd">            &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="acquirefromsequence">
+<h3>acquireFromSequence<a class="headerlink" href="#acquirefromsequence" title="Permalink to this headline">¶</a></h3>
+<p>Wrapper method to init the processing from a <em>list</em> of <strong>Images</strong>. (Offline processing)</p>
+<p><strong>Python:</strong> <tt class="docutils literal"><span class="pre">acquireFromSequence(showImage</span> <span class="pre">=</span> <span class="pre">True)</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">acquireFromSequence</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">showImage</span> <span class="o">=</span> <span class="bp">True</span><span class="p">):</span>
+            <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">            Wrapper method to init the generator and start the processing</span>
+<span class="sd">            over the &#39;self.videoSequence&#39; until it runs out of available frames.</span>
+<span class="sd">            &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="runappsequence">
+<h3>runAppSequence<a class="headerlink" href="#runappsequence" title="Permalink to this headline">¶</a></h3>
+<p>Main routine to start the processing off-line.</p>
+<p><strong>Python:</strong> <tt class="docutils literal"><span class="pre">runAppSequence(showImage</span> <span class="pre">=</span> <span class="pre">True)</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">runAppSequence</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">showImage</span> <span class="o">=</span> <span class="bp">True</span><span class="p">):</span>
+            <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">            Main routine of the class that perform all the operations to</span>
+<span class="sd">            localise the mouse, computes its position and generates the report.</span>
+<span class="sd">            It use a video sequence previously uploaded to the class.</span>
+<span class="sd">            &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="runapp">
+<h3>runApp<a class="headerlink" href="#runapp" title="Permalink to this headline">¶</a></h3>
+<p>Main routine for processing. (Debug Proposes)</p>
+<p><strong>Python:</strong> <tt class="docutils literal"><span class="pre">runApp()</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">runApp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">            [Debug Proposes]</span>
+<span class="sd">            Main routine of the class that updates the &#39;currImg&#39; with different</span>
+<span class="sd">            sources {webCam, videoSequence} and call the &#39;applyProcessing&#39; routine</span>
+<span class="sd">            to analyse the image.</span>
+<span class="sd">            It also calls the &#39;generateReport&#39; function which create the report</span>
+<span class="sd">            of the current experiment and shows the results.</span>
+<span class="sd">            &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="getarclenght">
+<h3>getArcLenght<a class="headerlink" href="#getarclenght" title="Permalink to this headline">¶</a></h3>
+<p>Return the length of the mouse&#8217;s path. (Pixel distance)</p>
+<p><strong>Python:</strong> Double : <tt class="docutils literal"><span class="pre">getArcLenght(arc)</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">getArcLenght</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">arc</span><span class="p">):</span>
+            <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">            Computes the length of the arc described by the list &#39;arc&#39; of</span>
+<span class="sd">            Position objects in PIXELS distances.</span>
+<span class="sd">                arc &lt;- list w/ Position objects</span>
+<span class="sd">            return float w/ the length of the arc.</span>
+<span class="sd">            &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="getpathdistance">
+<h3>getPathDistance<a class="headerlink" href="#getpathdistance" title="Permalink to this headline">¶</a></h3>
+<p>Return the length of the mouse&#8217;s path. (cm distance)</p>
+<p><strong>Python:</strong> Double : <tt class="docutils literal"><span class="pre">getPathDistance(path)</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">getPathDistance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+            <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">            Gets the @real path&#39;s distance traveled by the mouse.</span>
+<span class="sd">                path &lt;- list w/ the mouse&#39;s path</span>
+<span class="sd">            return float w/ path&#39;s distance in cm.</span>
+<span class="sd">            &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="getconvfactor">
+<h3>getConvFactor<a class="headerlink" href="#getconvfactor" title="Permalink to this headline">¶</a></h3>
+<p>Computes the conversion factor from px -&gt; cm.</p>
+<p><strong>Python:</strong> Double : <tt class="docutils literal"><span class="pre">getConvFactor()</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">getConvFactor</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">            Computes the conversion factor to scale pixels unit to cm.</span>
+<span class="sd">            returns float w/ the conversion factor px -&gt; cm</span>
+<span class="sd">            &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="getvelocity">
+<h3>getVelocity<a class="headerlink" href="#getvelocity" title="Permalink to this headline">¶</a></h3>
+<p>Returns the velocity of the mouse and in which frames the velocity is greater than
+the desired sensitivity.</p>
+<p><strong>Python:</strong> Tuple([Double],[Bool]) : <tt class="docutils literal"><span class="pre">getVelocity(sensitivity</span> <span class="pre">=</span> <span class="pre">2)</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">getVelocity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sensitivity</span> <span class="o">=</span> <span class="mi">2</span><span class="p">):</span>
+            <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">            Computes the velocity of the mouse using discrete differentiation.</span>
+<span class="sd">            Use a default &#39;sensitivity&#39; value of 2 as threshold to discriminate</span>
+<span class="sd">            the mouse&#39;s movement.</span>
+<span class="sd">                sensitivity &lt;- int w/ the threshold value for movement. Default = 2</span>
+<span class="sd">            return tuple:</span>
+<span class="sd">                    (array with mouse velocity</span>
+<span class="sd">                    &amp;</span>
+<span class="sd">                    array boolean w/ the frames&#39; index in where the movement is</span>
+<span class="sd">                    bigger than the threshold value)</span>
+<span class="sd">            &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="seevelocitytest">
+<h3>seeVelocityTest<a class="headerlink" href="#seevelocitytest" title="Permalink to this headline">¶</a></h3>
+<p>Debug routine to calibrate the adequate movement sensitivity.</p>
+<p><strong>Python:</strong>  <tt class="docutils literal"><span class="pre">seeVelocityTest()</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">seeVelocityTest</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">            Debug test for the velocity function. The video is presented with</span>
+<span class="sd">            the dot in &#39;red&#39; if the mouse is static and &#39;green&#39; if the mouse</span>
+<span class="sd">            is moving.</span>
+<span class="sd">            &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="latencyplot">
+<h3>latencyPlot<a class="headerlink" href="#latencyplot" title="Permalink to this headline">¶</a></h3>
+<p>Plots mouse&#8217;s latency.</p>
+<p><strong>Python:</strong>  <tt class="docutils literal"><span class="pre">latencyPlot(fileName)</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">latencyPlot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fileName</span><span class="p">):</span>
+            <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">            Function which plots the mouse&#39;s latency.</span>
+<span class="sd">            &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="generatereport">
+<h3>generateReport<a class="headerlink" href="#generatereport" title="Permalink to this headline">¶</a></h3>
+<p>Generates pdf report of the experiment.</p>
+<p><strong>Python:</strong>  <tt class="docutils literal"><span class="pre">generateReport()</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">generateReport</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">            Generates the report of the current experiment.</span>
+<span class="sd">            &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="watermarkpdf">
+<h3>waterMarkPdf<a class="headerlink" href="#watermarkpdf" title="Permalink to this headline">¶</a></h3>
+<p>Adds a watermark to the created pdf.</p>
+<p><strong>Python:</strong>  <tt class="docutils literal"><span class="pre">waterMarkPdf(pdf)</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">waterMarkPdf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pdf</span><span class="p">):</span>
+            <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">            Generates a water mark for the reported pdf.</span>
+<span class="sd">            &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">MainClasses.py</a><ul>
+<li><a class="reference internal" href="#mainclass-object">MainClass(object)</a><ul>
+<li><a class="reference internal" href="#mainclass"><strong>MainClass</strong></a></li>
+<li><a class="reference internal" href="#cvtgray">cvtGray</a></li>
+<li><a class="reference internal" href="#preimg">preImg</a></li>
+<li><a class="reference internal" href="#findmouse">findMouse</a></li>
+<li><a class="reference internal" href="#isolatemouse">isolateMouse</a></li>
+<li><a class="reference internal" href="#computemousecentroid">computeMouseCentroid</a></li>
+<li><a class="reference internal" href="#applyprocessing">applyProcessing</a></li>
+<li><a class="reference internal" href="#grabnextframefromwebcam">grabNextFrameFromWebcam</a></li>
+<li><a class="reference internal" href="#acquirefromwebcam">acquireFromWebCam</a></li>
+<li><a class="reference internal" href="#initfromwebcam">initFromWebCam</a></li>
+<li><a class="reference internal" href="#runappwebcam">runAppWebCam</a></li>
+<li><a class="reference internal" href="#framegenerator">frameGenerator</a></li>
+<li><a class="reference internal" href="#grabnextframefromsequence">grabNextFrameFromSequence</a></li>
+<li><a class="reference internal" href="#acquirefromsequence">acquireFromSequence</a></li>
+<li><a class="reference internal" href="#runappsequence">runAppSequence</a></li>
+<li><a class="reference internal" href="#runapp">runApp</a></li>
+<li><a class="reference internal" href="#getarclenght">getArcLenght</a></li>
+<li><a class="reference internal" href="#getpathdistance">getPathDistance</a></li>
+<li><a class="reference internal" href="#getconvfactor">getConvFactor</a></li>
+<li><a class="reference internal" href="#getvelocity">getVelocity</a></li>
+<li><a class="reference internal" href="#seevelocitytest">seeVelocityTest</a></li>
+<li><a class="reference internal" href="#latencyplot">latencyPlot</a></li>
+<li><a class="reference internal" href="#generatereport">generateReport</a></li>
+<li><a class="reference internal" href="#watermarkpdf">waterMarkPdf</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="camTest.html"
+                        title="previous chapter">camTest.py</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="functions.html"
+                        title="next chapter">OpenField&#8217;s Functions</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/MainClass.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="functions.html" title="OpenField’s Functions"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="camTest.html" title="camTest.py"
+             >previous</a> |</li>
+        <li><a href="index.html">OpenFieldTest 2.1.4 documentation</a> &raquo;</li>
+          <li><a href="classes.html" >OpenField&#8217;s Classes</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Mario Coutino.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

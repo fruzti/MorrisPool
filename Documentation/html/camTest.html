@@ -1,0 +1,369 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>camTest.py &mdash; OpenFieldTest 2.1.4 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.1.4',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="OpenFieldTest 2.1.4 documentation" href="index.html" />
+    <link rel="up" title="OpenField’s Classes" href="classes.html" />
+    <link rel="next" title="MainClasses.py" href="MainClass.html" />
+    <link rel="prev" title="BasicClases.py" href="basicClases.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="MainClass.html" title="MainClasses.py"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="basicClases.html" title="BasicClases.py"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">OpenFieldTest 2.1.4 documentation</a> &raquo;</li>
+          <li><a href="classes.html" accesskey="U">OpenField&#8217;s Classes</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="camtest-py">
+<span id="classes"></span><h1>camTest.py<a class="headerlink" href="#camtest-py" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="camera-object">
+<h2>Camera(object)<a class="headerlink" href="#camera-object" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Camera</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Camera class to adquire images.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+<p><strong>Class Attributes</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="43%" />
+<col width="57%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Type</th>
+<th class="head">Name</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>String</td>
+<td>camName</td>
+</tr>
+<tr class="row-odd"><td>Bool</td>
+<td>state</td>
+</tr>
+<tr class="row-even"><td>Matrix</td>
+<td>frame</td>
+</tr>
+<tr class="row-odd"><td>VideoCapture</td>
+<td>device</td>
+</tr>
+<tr class="row-even"><td>String</td>
+<td>adqType</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="camera">
+<h3><strong>Camera</strong><a class="headerlink" href="#camera" title="Permalink to this headline">¶</a></h3>
+<p>Camera constructor.</p>
+<p><strong>Python:</strong> <tt class="docutils literal"><span class="pre">Camera(camNum,</span> <span class="pre">camName,</span> <span class="pre">adqType)</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">camNum</span><span class="p">,</span> <span class="n">camName</span><span class="p">,</span> <span class="n">adqType</span><span class="p">):</span>
+            <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">            Init method for the selected camera.</span>
+<span class="sd">                camNum -&gt; int of the camera device in the computer</span>
+<span class="sd">                camName -&gt; string with the name of the current device</span>
+<span class="sd">                adqType -&gt; string with the type of the adquisition for the device</span>
+<span class="sd">            &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="grabframe">
+<h3>grabFrame<a class="headerlink" href="#grabframe" title="Permalink to this headline">¶</a></h3>
+<p>Return tuple with state of acquisition and image buffer.</p>
+<p><strong>Python:</strong> Tuple(Bool, Image) : <tt class="docutils literal"><span class="pre">grabFrame()</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">grabFrame</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">            Acquisition method which take the next frame in the device buffer.</span>
+<span class="sd">            return a tuple (state, image) where:</span>
+<span class="sd">                state &lt;- True if there is a new image in the buffer and False otherwise</span>
+<span class="sd">                image &lt;- Image with the current information of the device&#39;s buffer</span>
+<span class="sd">            &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="updateframe">
+<h3>updateFrame<a class="headerlink" href="#updateframe" title="Permalink to this headline">¶</a></h3>
+<p>Template method for subClasses.</p>
+<p><strong>Python:</strong> Image : <tt class="docutils literal"><span class="pre">getDistance()</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">updateFrame</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Abstract method for modifications in the buffer&#39;s frame for</span>
+<span class="sd">        different subclasses of Camera</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="destroydevice">
+<h3>destroyDevice<a class="headerlink" href="#destroydevice" title="Permalink to this headline">¶</a></h3>
+<p>Release the camera&#8217;s memory and destroy the object.</p>
+<p><strong>Python:</strong> Image : <tt class="docutils literal"><span class="pre">destroyDevice()</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">destroyDevice</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Destroy the current device.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="showimage">
+<h3>showImage<a class="headerlink" href="#showimage" title="Permalink to this headline">¶</a></h3>
+<p>Display buffered image on screen.</p>
+<p><strong>Python:</strong> Bool : <tt class="docutils literal"><span class="pre">showImage()</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">showImage</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Calls updateFrame to make the desired modifications in the buffer</span>
+<span class="sd">        and displays the image in their current window.</span>
+<span class="sd">        return True if the image was shown or False otherwise.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="getframe">
+<h3>getFrame<a class="headerlink" href="#getframe" title="Permalink to this headline">¶</a></h3>
+<p>Return current frame.</p>
+<p><strong>Python:</strong> Image : <tt class="docutils literal"><span class="pre">getFrame()</span></tt></p>
+</div>
+<div class="section" id="getfps">
+<h3>getFPS<a class="headerlink" href="#getfps" title="Permalink to this headline">¶</a></h3>
+<p>Return camera&#8217;s fps.</p>
+<p><strong>Python:</strong> Int : <tt class="docutils literal"><span class="pre">getFPS()</span></tt></p>
+</div>
+</div>
+<div class="section" id="recordercam-camera">
+<h2>RecorderCam(Camera)<a class="headerlink" href="#recordercam-camera" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">RecorderCam</span><span class="p">(</span><span class="n">Camera</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Class use to adquired the information frames to be processed from the</span>
+<span class="sd">    webcam. (This is required due problems with AVI reading in python.)</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+<p><strong>Class Attributes</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="43%" />
+<col width="57%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Type</th>
+<th class="head">Name</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>List[Matrix]</td>
+<td>videoSequence</td>
+</tr>
+<tr class="row-odd"><td>Bool</td>
+<td>recordMode</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="recordercam">
+<h3><strong>RecorderCam</strong><a class="headerlink" href="#recordercam" title="Permalink to this headline">¶</a></h3>
+<p>RecorderCam default constructor.</p>
+<p><strong>Python:</strong> <tt class="docutils literal"><span class="pre">RecorderCam(camNum,</span> <span class="pre">camName,</span> <span class="pre">adqType)</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">camNum</span><span class="p">,</span> <span class="n">camName</span><span class="p">,</span> <span class="n">adqType</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Init method for the class. Calls the super.__init__()</span>
+<span class="sd">        to init the class.</span>
+<span class="sd">        Adds new fields:</span>
+<span class="sd">                videoSequence -&gt; list with the frames recorded</span>
+<span class="sd">                recordMode -&gt; boolean with the current mode of the recorder</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="startrecording">
+<h3>startRecording<a class="headerlink" href="#startrecording" title="Permalink to this headline">¶</a></h3>
+<p>Starts video recording.</p>
+<p><strong>Python:</strong> <tt class="docutils literal"><span class="pre">startRecording()</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">startRecording</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Activates the recording of the video in [videoSequence]</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="stoprecording">
+<h3>stopRecording<a class="headerlink" href="#stoprecording" title="Permalink to this headline">¶</a></h3>
+<p>Stops video recording and returns the video sequence filmed.</p>
+<p><strong>Python:</strong> List[Image] : <tt class="docutils literal"><span class="pre">stopRecording()</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">stopRecording</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Deactivate the current recording.</span>
+<span class="sd">        returns the acquired video sequence.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="pauserecording">
+<h3>pauseRecording<a class="headerlink" href="#pauserecording" title="Permalink to this headline">¶</a></h3>
+<p>Pauses video recording. (Debug usage)</p>
+<p><strong>Python:</strong> String : <tt class="docutils literal"><span class="pre">pauseRecording()</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">pauseRecording</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Pause the recording of the current acquisition. (This methods</span>
+<span class="sd">        is just for debugging. Actually there is no need to pause an</span>
+<span class="sd">        automatic recording.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="recordframe">
+<h3>recordFrame<a class="headerlink" href="#recordframe" title="Permalink to this headline">¶</a></h3>
+<p>Saves current frame into videoSequence buffer.</p>
+<p><strong>Python:</strong> String : <tt class="docutils literal"><span class="pre">recordFrame()</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">recordFrame</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Activates the recording of the video while it is displayed</span>
+<span class="sd">        in the imshow routine.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id1">
+<h3>updateFrame<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Implementation of parent class&#8217; abstract method.
+Add a watermark to a copy of the buffered frame to indicate the state of the recording and return it.</p>
+<p><strong>Python:</strong> Image : <tt class="docutils literal"><span class="pre">updateFrame()</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">updateFrame</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Add a water mark to a copy of the cam&#39;s buffer to show the</span>
+<span class="sd">        current state of the device.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="getrecordmode">
+<h3>getRecordMode<a class="headerlink" href="#getrecordmode" title="Permalink to this headline">¶</a></h3>
+<p>Return recording state.</p>
+<p><strong>Python:</strong> Bool : <tt class="docutils literal"><span class="pre">getRecordMode()</span></tt></p>
+</div>
+<div class="section" id="getvideosequence">
+<h3>getVideoSequence<a class="headerlink" href="#getvideosequence" title="Permalink to this headline">¶</a></h3>
+<p>Return video sequence.</p>
+<p><strong>Python:</strong> List[Image] : <tt class="docutils literal"><span class="pre">getVideoSequence()</span></tt></p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">camTest.py</a><ul>
+<li><a class="reference internal" href="#camera-object">Camera(object)</a><ul>
+<li><a class="reference internal" href="#camera"><strong>Camera</strong></a></li>
+<li><a class="reference internal" href="#grabframe">grabFrame</a></li>
+<li><a class="reference internal" href="#updateframe">updateFrame</a></li>
+<li><a class="reference internal" href="#destroydevice">destroyDevice</a></li>
+<li><a class="reference internal" href="#showimage">showImage</a></li>
+<li><a class="reference internal" href="#getframe">getFrame</a></li>
+<li><a class="reference internal" href="#getfps">getFPS</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#recordercam-camera">RecorderCam(Camera)</a><ul>
+<li><a class="reference internal" href="#recordercam"><strong>RecorderCam</strong></a></li>
+<li><a class="reference internal" href="#startrecording">startRecording</a></li>
+<li><a class="reference internal" href="#stoprecording">stopRecording</a></li>
+<li><a class="reference internal" href="#pauserecording">pauseRecording</a></li>
+<li><a class="reference internal" href="#recordframe">recordFrame</a></li>
+<li><a class="reference internal" href="#id1">updateFrame</a></li>
+<li><a class="reference internal" href="#getrecordmode">getRecordMode</a></li>
+<li><a class="reference internal" href="#getvideosequence">getVideoSequence</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="basicClases.html"
+                        title="previous chapter">BasicClases.py</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="MainClass.html"
+                        title="next chapter">MainClasses.py</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/camTest.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="MainClass.html" title="MainClasses.py"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="basicClases.html" title="BasicClases.py"
+             >previous</a> |</li>
+        <li><a href="index.html">OpenFieldTest 2.1.4 documentation</a> &raquo;</li>
+          <li><a href="classes.html" >OpenField&#8217;s Classes</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Mario Coutino.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

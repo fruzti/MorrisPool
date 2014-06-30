@@ -1,0 +1,255 @@
+.. _classes:
+
+camTest.py
+====================
+
+Camera(object)
+--------------------
+
+.. code-block:: python
+
+	class Camera(object):
+	    '''
+	    Camera class to adquire images.
+	    '''
+**Class Attributes**
+
++------------+----------------+
+|    Type    |    Name        |
++============+================+
+|String      | camName        |
++------------+----------------+
+|Bool        |     state      |
++------------+----------------+
+|Matrix      | frame          |
++------------+----------------+
+|VideoCapture| device         |
++------------+----------------+
+|String      | adqType        |
++------------+----------------+
+
+
+**Camera**
+++++++++++++++++++++
+
+Camera constructor.
+
+**Python:** ``Camera(camNum, camName, adqType)``
+
+.. code-block:: python
+
+    def __init__(self, camNum, camName, adqType):
+	        '''
+	        Init method for the selected camera.
+	            camNum -> int of the camera device in the computer
+	            camName -> string with the name of the current device
+	            adqType -> string with the type of the adquisition for the device
+	        '''
+	
+grabFrame
+++++++++++++++++++++
+
+Return tuple with state of acquisition and image buffer.
+
+**Python:** Tuple(Bool, Image) : ``grabFrame()``
+
+.. code-block:: python
+
+    def grabFrame(self):
+	        '''
+	        Acquisition method which take the next frame in the device buffer.
+	        return a tuple (state, image) where:
+	            state <- True if there is a new image in the buffer and False otherwise
+	            image <- Image with the current information of the device's buffer
+	        '''
+	
+updateFrame
+++++++++++++++++++++
+
+Template method for subClasses.
+
+**Python:** Image : ``getDistance()``
+
+.. code-block:: python
+
+	def updateFrame(self):
+	        '''
+	        Abstract method for modifications in the buffer's frame for 
+	        different subclasses of Camera
+	        '''
+
+destroyDevice
+++++++++++++++++++++
+
+Release the camera's memory and destroy the object.
+
+**Python:** Image : ``destroyDevice()``
+
+.. code-block:: python
+
+	def destroyDevice(self):
+	        '''
+	        Destroy the current device.
+	        '''
+
+showImage
+++++++++++++++++++++
+
+Display buffered image on screen.
+
+**Python:** Bool : ``showImage()``
+
+.. code-block:: python
+
+	def showImage(self):
+	        '''
+	        Calls updateFrame to make the desired modifications in the buffer
+	        and displays the image in their current window.
+	        return True if the image was shown or False otherwise. 
+	        '''
+getFrame
+++++++++++++++++++++
+
+Return current frame.
+
+**Python:** Image : ``getFrame()``
+
+getFPS
+++++++++++++++++++++
+
+Return camera's fps.
+
+**Python:** Int : ``getFPS()``
+
+RecorderCam(Camera)
+--------------------
+
+.. code-block:: python
+
+	class RecorderCam(Camera):
+	    '''
+	    Class use to adquired the information frames to be processed from the
+	    webcam. (This is required due problems with AVI reading in python.)
+	    '''
+
+**Class Attributes**
+
++------------+----------------+
+|    Type    |    Name        |
++============+================+
+|List[Matrix]| videoSequence  |
++------------+----------------+
+|Bool        | recordMode     |
++------------+----------------+
+
+**RecorderCam**
+++++++++++++++++++++
+
+RecorderCam default constructor.
+
+**Python:** ``RecorderCam(camNum, camName, adqType)``
+
+.. code-block:: python
+
+	def __init__(self, camNum, camName, adqType):
+	        '''
+	        Init method for the class. Calls the super.__init__()
+	        to init the class.
+	        Adds new fields:
+	                videoSequence -> list with the frames recorded
+	                recordMode -> boolean with the current mode of the recorder
+	        '''
+	
+startRecording
+++++++++++++++++++++
+
+Starts video recording.
+
+**Python:** ``startRecording()``
+
+.. code-block:: python
+
+	def startRecording(self):
+	        '''
+	        Activates the recording of the video in [videoSequence]
+	        '''
+
+stopRecording
+++++++++++++++++++++
+
+Stops video recording and returns the video sequence filmed.
+
+**Python:** List[Image] : ``stopRecording()``
+
+.. code-block:: python
+
+	def stopRecording(self):
+	        '''
+	        Deactivate the current recording.
+	        returns the acquired video sequence.
+	        '''
+
+
+pauseRecording
+++++++++++++++++++++
+
+Pauses video recording. (Debug usage)
+
+**Python:** String : ``pauseRecording()``
+
+.. code-block:: python
+
+	def pauseRecording(self):
+	        '''
+	        Pause the recording of the current acquisition. (This methods
+	        is just for debugging. Actually there is no need to pause an
+	        automatic recording.
+	        '''
+
+recordFrame
+++++++++++++++++++++
+
+Saves current frame into videoSequence buffer.
+
+**Python:** String : ``recordFrame()``
+
+.. code-block:: python
+
+	def recordFrame(self):
+	        '''
+	        Activates the recording of the video while it is displayed
+	        in the imshow routine.
+	        '''
+
+updateFrame
+++++++++++++++++++++
+
+Implementation of parent class' abstract method.
+Add a watermark to a copy of the buffered frame to indicate the state of the recording and return it.
+
+**Python:** Image : ``updateFrame()``
+
+.. code-block:: python
+
+	def updateFrame(self):
+	        '''
+	        Add a water mark to a copy of the cam's buffer to show the
+	        current state of the device.
+	        '''
+
+getRecordMode
+++++++++++++++++++++
+
+Return recording state.
+
+**Python:** Bool : ``getRecordMode()``
+
+getVideoSequence
+++++++++++++++++++++
+
+Return video sequence.
+
+**Python:** List[Image] : ``getVideoSequence()``
+
+
+

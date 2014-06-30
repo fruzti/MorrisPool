@@ -1,0 +1,193 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>DrawOutput.py &mdash; OpenFieldTest 2.1.4 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.1.4',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="OpenFieldTest 2.1.4 documentation" href="index.html" />
+    <link rel="up" title="Archivos de MorrisField" href="classes.html" />
+    <link rel="next" title="OpenField’s Functions" href="functions.html" />
+    <link rel="prev" title="PolarCoords.py" href="VectorPolar.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="functions.html" title="OpenField’s Functions"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="VectorPolar.html" title="PolarCoords.py"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">OpenFieldTest 2.1.4 documentation</a> &raquo;</li>
+          <li><a href="classes.html" accesskey="U">Archivos de MorrisField</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="drawoutput-py">
+<span id="classes"></span><h1>DrawOutput.py<a class="headerlink" href="#drawoutput-py" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="drawoutput-object">
+<h2>DrawOutput(object)<a class="headerlink" href="#drawoutput-object" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">DrawOutput</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+   <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">   Drawer Class. It is used to create the output image with the path, quadrants</span>
+<span class="sd">   and target.</span>
+<span class="sd">   &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+<p><strong>Atributos de la Clase:</strong></p>
+<p>Int     : rad
+Img     : img
+Tupla   : cen
+Int     : dX
+Int     : dY
+Array   : delta
+Array   : target
+Img     : drawImg
+Array   : path</p>
+<div class="section" id="drawoutput">
+<h3><strong>DrawOutput</strong><a class="headerlink" href="#drawoutput" title="Permalink to this headline">¶</a></h3>
+<p>Constructor de Clase DrawOutput</p>
+<p><strong>Python:</strong> <tt class="docutils literal"><span class="pre">DrawOutput(rad,</span> <span class="pre">cen,</span> <span class="pre">target,</span> <span class="pre">path)</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">rad</span><span class="p">,</span> <span class="n">cen</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span>
+     <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">     Inits the DrawOutput class and performs the the translation of the points to</span>
+<span class="sd">     the center of the image.</span>
+<span class="sd">     @param rad Int w/ the radio of the pool</span>
+<span class="sd">     @param cen Int w/ the centre of the pool</span>
+<span class="sd">     @param target List w/ the vertices of the target</span>
+<span class="sd">     @param Array w/ the mouse’s path</span>
+<span class="sd">     &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="showdraw">
+<h3>showDraw<a class="headerlink" href="#showdraw" title="Permalink to this headline">¶</a></h3>
+<p>Muestra la imagen que se desea guardar. Permite realizar modificaciones para seleccionar los diferentes objetos que se incluirán en la imagen.</p>
+<p>Teclas de Manipulación:</p>
+<p><strong>ESC</strong> : Salir</p>
+<p><strong>T</strong>   : Dibujar Target</p>
+<p><strong>P</strong>   : Dibujar Path</p>
+<p><strong>C</strong>   : Dibujar Cuadrantes</p>
+<p><strong>R</strong>   : Reiniciar Imagen</p>
+<p><strong>S</strong>   : Salvar Imagen</p>
+<p><strong>Python:</strong> <tt class="docutils literal"><span class="pre">showDraw()</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">calculateRho</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+     <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">     Main Drawing routine. It displays the image and it allows to perform</span>
+<span class="sd">     modification to the desired output image.</span>
+<span class="sd">     &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="savedraw">
+<h3>saveDraw<a class="headerlink" href="#savedraw" title="Permalink to this headline">¶</a></h3>
+<p>Guarda la imagen en la ruta default en formato PNG.
+Regresa True si todo fue realizado exitosamente.</p>
+<p><strong>Python:</strong> Bool : <tt class="docutils literal"><span class="pre">saveDraw()</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">saveDraw</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Save image to the default directory in PNG format.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">DrawOutput.py</a><ul>
+<li><a class="reference internal" href="#drawoutput-object">DrawOutput(object)</a><ul>
+<li><a class="reference internal" href="#drawoutput"><strong>DrawOutput</strong></a></li>
+<li><a class="reference internal" href="#showdraw">showDraw</a></li>
+<li><a class="reference internal" href="#savedraw">saveDraw</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="VectorPolar.html"
+                        title="previous chapter">PolarCoords.py</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="functions.html"
+                        title="next chapter">OpenField&#8217;s Functions</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/DrawOutput.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="functions.html" title="OpenField’s Functions"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="VectorPolar.html" title="PolarCoords.py"
+             >previous</a> |</li>
+        <li><a href="index.html">OpenFieldTest 2.1.4 documentation</a> &raquo;</li>
+          <li><a href="classes.html" >Archivos de MorrisField</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Mario Coutino.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

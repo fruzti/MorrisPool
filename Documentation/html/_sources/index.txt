@@ -1,0 +1,74 @@
+.. OpenFieldTest documentation master file, created by
+   sphinx-quickstart on Sat May 24 09:58:58 2014.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Bienvenido a la Documentación de MorrisPool!
+=========================================
+
+Morris Pool es un proyecto basado en Python para el Lab. de Psicobiología del Centro de Investigación Biomédica de Occidente. 
+El proyecto ha sido sido desarrollado desde sus bases hasta necesidades específicas debido a requerimientos de la investigación y restricciones del experimento. Además, este proyecto es parte de un paquete de software para experimentos de comportamiento utilizando ratones desarrollado por el mismo autor. 
+
+El siguiente material es la documentación del proyecto, conteniendo todos los métodos, las clases y la estructura del código disponible para desarrollo futuro del proyecto y mantenimiento de software.
+
+El proyecto fue realizado bajo la supervisión de:
+	- Laboratorio de Psicobiología
+		Centro de Investigación Biomédica de Occidente
+	Responsable:
+		- Dr. Ignacio Gonzales Burgos
+	
+API
+====================
+
+.. toctree::
+   :maxdepth: 2
+
+   classes.rst
+   functions.rst
+   struc.rst
+
+Instalación y Uso
+====================
+.. toctree::
+   :maxdepth: 2
+
+   install.rst
+
+Resultados
+====================
+.. toctree::
+   :maxdepth: 2
+
+   usage.rst
+
+Licencia
+==================
+::
+
+	Copyright 2014 by Mario Coutino <mario9128@gmail.com>
+	
+	                    All Rights Reserved
+					
+	Permission to use, copy, modify, and distribute this software and
+	its  documentation  for any  purpose  and   without fee is hereby
+	granted,  provided  that the above copyright notice appear in all
+	copies and that  both that  copyright  notice and this permission
+	notice appear in supporting  documentation,  and that the name of 
+	Mario Coutino not be used in  advertising or publicity pertaining 
+	to distribution   of the software without specific, written prior
+	permission.
+	
+	MARIO COUTINO DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE,
+	INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS, IN
+	NO EVENT SHALL MARIO COUTINO BE LIABLE FOR ANY SPECIAL, INDIRECT OR
+	CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS
+	OF  USE,  DATA  OR  PROFITS,  WHETHER  IN AN  ACTION  OF  CONTRACT, 
+	NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION
+	WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
+Contacto
+==================
+
+`LinkedIn Page <https://www.linkedin.com/pub/mario-alberto-coutiño-minguez/74/a82/777>`_
+
+

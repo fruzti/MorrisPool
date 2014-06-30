@@ -26,11 +26,17 @@ import cv2
 
 class MorrisPool:
     """
+    Main class for the MorrisPool's experiment analysis.
     """
     def __init__(self,videoSequence, initPoint, endPoint):
         """
+        Init the MorrisPool class. It takes the original video -videoSequence-
+        and cuts the frames in the interval (initPoint, endPoint).
+        videoSequence -> List w/ frames
+        initPoint  -> Int w/ starting point of the video
+        endPoint -> Int w/ ending point of the video
         """
-        print "compienza"
+        print "comienza"
         self.tinaLenght = 132.2
         self.videoSequence = videoSequence[initPoint : endPoint + 1]
         self.videoSequence.insert(0,videoSequence[0])
@@ -51,6 +57,8 @@ class MorrisPool:
     
     def initPoolPosition(self):
         """
+        Inits the preprocessing of the video. It retrieves all the geometric
+        information of the pool to start the analysis.
         """
         
         self.baseFrame = self.videoSequence[self.seqIndex]
@@ -75,6 +83,9 @@ class MorrisPool:
         
     def startTracking(self, showResult):
         """
+        Performs the video's analysis. If it is desired, the segmented image can be
+        shown by using the variable: showResult.
+        showResult -> Bool w/ True if the image will be displayed or False otherwise
         """
         th = 100
         

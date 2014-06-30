@@ -1,0 +1,414 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Pool.py &mdash; OpenFieldTest 2.1.4 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.1.4',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="OpenFieldTest 2.1.4 documentation" href="index.html" />
+    <link rel="up" title="Archivos de MorrisField" href="classes.html" />
+    <link rel="next" title="camTest.py" href="camTest.html" />
+    <link rel="prev" title="MorrisPool.py" href="MorrisPool.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="camTest.html" title="camTest.py"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="MorrisPool.html" title="MorrisPool.py"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">OpenFieldTest 2.1.4 documentation</a> &raquo;</li>
+          <li><a href="classes.html" accesskey="U">Archivos de MorrisField</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="pool-py">
+<span id="classes"></span><h1>Pool.py<a class="headerlink" href="#pool-py" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="pool-object">
+<h2>Pool(object)<a class="headerlink" href="#pool-object" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Pool</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+   <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">   Class designed for the Transfer&#39;s Analysis. Some of its methods are used to</span>
+<span class="sd">   mark where the target&#39;s platform is located in the image.</span>
+<span class="sd">   &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+<p><strong>Atributos de la Clase:</strong></p>
+<p>String  : filePath</p>
+<p>Img     : poolImg</p>
+<p>Bool    : mouseState</p>
+<p>Int     : poolCentre</p>
+<p>Lista   : mousePath</p>
+<p>Tupla   : currPos</p>
+<p>Int     : xT</p>
+<p>Int     : yT</p>
+<p>Int     : rT</p>
+<p>Int     : numEntriesQuad</p>
+<p>Dict    : entriesPerQuad</p>
+<p>Dict    : numTimesInQuad</p>
+<p>Dict    : targetCrosses</p>
+<p>Tupla   : currQuad</p>
+<p>Tupla   : prevQuad</p>
+<p>Lista   : targetPosition</p>
+<p>Tupla   : targetQuad</p>
+<p>Int     : numTargetCrosses</p>
+<p>Bool    : inTarget</p>
+<p>Bool    : prevInTarget</p>
+<p>Lista   : targetGhostCoord</p>
+<div class="section" id="pool">
+<h3><strong>Pool</strong><a class="headerlink" href="#pool" title="Permalink to this headline">¶</a></h3>
+<p>Constructor de Clase Pool</p>
+<p><strong>Python:</strong> <tt class="docutils literal"><span class="pre">Pool(poolCentre,</span> <span class="pre">mousePath,</span> <span class="pre">filePath)</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">poolCentre</span><span class="p">,</span> <span class="n">mousePath</span><span class="p">,</span> <span class="n">filePath</span><span class="p">):</span>
+     <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">     Init the Pool Object and starts the Target&#39;s localisation and Mouse&#39;s</span>
+<span class="sd">     initial position for the analysis.</span>
+<span class="sd">     poolCentre -&gt; Int w/ the center of the pool</span>
+<span class="sd">     mousePath -&gt; List w/ the mouse&#39;s path</span>
+<span class="sd">     filePath -&gt; String w/ the path of the video</span>
+<span class="sd">     &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="getbasephotopath">
+<h3>getBasePhotoPath<a class="headerlink" href="#getbasephotopath" title="Permalink to this headline">¶</a></h3>
+<p>Regresa el PATH correcto para leer la imagen base que permita localizar la plataforma.</p>
+<p><strong>Python:</strong> String : <tt class="docutils literal"><span class="pre">getBasePhotoPath()</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">getBasePhotoPath</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+     <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">     Build the correct base photo&#39;s path for select the target position.</span>
+<span class="sd">     Returns a string with the path.</span>
+<span class="sd">     &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="initmouseposition">
+<h3>initMousePosition<a class="headerlink" href="#initmouseposition" title="Permalink to this headline">¶</a></h3>
+<p>Inicia las variables correspondientes a la posición y localización del ratón en la piscina.</p>
+<p><strong>Python:</strong> <tt class="docutils literal"><span class="pre">initMousePosition()</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">initMousePosition</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s">&#39;&#39;&#39;</span>
+<span class="s">        Inits the mouse position with the first element of the path. Also,</span>
+<span class="s">        updates the current quadrant and init the previous quadrant with the</span>
+<span class="s">        current quadrant.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="inittargetposition">
+<h3>initTargetPosition<a class="headerlink" href="#inittargetposition" title="Permalink to this headline">¶</a></h3>
+<p>Inicia las variables correspondientes a la posición y localización del Target. Además, crea los :Fantasmas: del Target (posiciones en la piscina, en los otros cuadrantes, donde podría encontrarse el Target).</p>
+<p><strong>Python:</strong> <tt class="docutils literal"><span class="pre">initTargetPosition()</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">initTargetPosition</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Inits the targetPosition calling the grabTargetPosition() method</span>
+<span class="sd">        to select the position from the image. Also, updates other target</span>
+<span class="sd">        related variables.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="on-mouse">
+<h3>on_mouse<a class="headerlink" href="#on-mouse" title="Permalink to this headline">¶</a></h3>
+<p>Evento de Mouse Default de OpenCV. En el se agrega un punto mas, vértice, a la posición del Target.</p>
+<p><strong>Python:</strong> <tt class="docutils literal"><span class="pre">on_mouse(event,</span> <span class="pre">x,</span> <span class="pre">y,</span> <span class="pre">flag,</span> <span class="pre">param)</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">on_mouse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">event</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">flag</span><span class="p">,</span> <span class="n">param</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Adds a new Vertex to the target&#39;s position at a Mouse&#39;s Click.</span>
+<span class="sd">        OpenCV’s Default Event.</span>
+<span class="sd">        param -&gt; Vertexes&#39; Index.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="grabtargetposition">
+<h3>grabTargetPosition<a class="headerlink" href="#grabtargetposition" title="Permalink to this headline">¶</a></h3>
+<p>Método para seleccionar las cuatro esquinas del Target en la piscina. En caso de equivocarse, es posible realizar la selección nuevamente únicamente al escoger un nuevo (quinto) punto.</p>
+<p><strong>Python:</strong> <tt class="docutils literal"><span class="pre">grabTargetPosition()</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">grabTargetPosition</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Displays and image with the Target to select the position of its four</span>
+<span class="sd">        vertices and store the tuples in the list targetPosition.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="checkcurrquad">
+<h3>checkCurrQuad<a class="headerlink" href="#checkcurrquad" title="Permalink to this headline">¶</a></h3>
+<p>Revisa el cuadrante en que cuerpos se encuentra.</p>
+<p><strong>Python:</strong> <tt class="docutils literal"><span class="pre">checkCurrQuad(currPos)</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">checkCurrQuad</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">currPos</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Finds in which Quadrant the currPos is found.</span>
+<span class="sd">        Returns a Tuple with the Quadrant.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="updatecurrquad">
+<h3>updateCurrQuad<a class="headerlink" href="#updatecurrquad" title="Permalink to this headline">¶</a></h3>
+<p>Actualiza currQuad y prevQuad con el cuadrante en los cuales se encuentra(ba) el Ratón.</p>
+<p><strong>Python:</strong> <tt class="docutils literal"><span class="pre">updateCurrQuad()</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">checkCurrQuad</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Updates the current Quadrant with the current mouse position.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="updatetimesinquad">
+<h3>updateTimesInQuad<a class="headerlink" href="#updatetimesinquad" title="Permalink to this headline">¶</a></h3>
+<p>Actualiza el contador de numTimesInQuad en la posición del cuadrante que se encuentra el Ratón actualmente.</p>
+<p><strong>Python:</strong> <tt class="docutils literal"><span class="pre">updateTimesInQuad()</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">updateTimesInQuad</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Increase the num of frames in which the mouse is found in</span>
+<span class="sd">        the current quadrant.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="checkentrytotargetquadrad">
+<h3>checkEntryToTargetQuadrad<a class="headerlink" href="#checkentrytotargetquadrad" title="Permalink to this headline">¶</a></h3>
+<p>Actualiza el numero de entradas al cuadrante actual en el que se encuentra el Ratón.</p>
+<p><strong>Python:</strong> <tt class="docutils literal"><span class="pre">checkEntryToTargetQuadrad()</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">checkEntryToTargetQuadrad</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Increase the number of entries to the Quadrant if the mouse</span>
+<span class="sd">        crosses the boundary into the target&#39;s Quadrant.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="pointinghosts">
+<h3>pointInGhosts<a class="headerlink" href="#pointinghosts" title="Permalink to this headline">¶</a></h3>
+<p>Revisa si currPos se encuentra en alguno de los Fantasmas del Target o en el Target.</p>
+<p><strong>Python:</strong> Bool : <tt class="docutils literal"><span class="pre">pointInGhosts()</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">pointInGhosts</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Checks if currPos is inside in one of the Target&#39; Ghosts or inside</span>
+<span class="sd">        the Target. Return True if it is inside, False otherwise.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="checkintarget">
+<h3>checkInTarget<a class="headerlink" href="#checkintarget" title="Permalink to this headline">¶</a></h3>
+<p>Llama al método que revisa si el Ratón se encuentra dentro del Target o de algunos de sus fantasmas.</p>
+<p><strong>Python:</strong> Bool : <tt class="docutils literal"><span class="pre">checkInTarget()</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">checkInTarget</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Checks if the mouse&#39;s current position is inside the target&#39;s space.</span>
+<span class="sd">        Returns True if it is inside or False otherwise.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="updateintarget">
+<h3>updateInTarget<a class="headerlink" href="#updateintarget" title="Permalink to this headline">¶</a></h3>
+<p>Actualiza inTarget y prevInTarget llamando a checkInTarget().</p>
+<p><strong>Python:</strong> <tt class="docutils literal"><span class="pre">updateInTarget()</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">updateInTarget</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Updates the inTarget calling the checkInTarget method and storages</span>
+<span class="sd">        the previous state in prevInTarget.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="checktargetiscrossed">
+<h3>checkTargetIsCrossed<a class="headerlink" href="#checktargetiscrossed" title="Permalink to this headline">¶</a></h3>
+<p>Revisa si el Target fue cruzado por el Ratón en esta iteración.</p>
+<p><strong>Python:</strong> <tt class="docutils literal"><span class="pre">checkTargetIsCrossed()</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">checkTargetIsCrossed</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Checks if the target is crossed and increments it if it is true.</span>
+<span class="sd">        Compares the last state of inTarget to find if now the mouse is outside</span>
+<span class="sd">        the target and previously was inside.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="updatecurrpos">
+<h3>updateCurrPos<a class="headerlink" href="#updatecurrpos" title="Permalink to this headline">¶</a></h3>
+<p>Actualiza la posición del Ratón.</p>
+<p><strong>Python:</strong> <tt class="docutils literal"><span class="pre">updateCurrPos()</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">updateCurrPos</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Updates the current position of the mouse in the pool.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="analysemousepath">
+<h3>analyseMousePath<a class="headerlink" href="#analysemousepath" title="Permalink to this headline">¶</a></h3>
+<p>Rutina principal que realiza el análisis del recorrido del ratón llamando a todas las funciones auxiliares y llenando las variables relacionadas.</p>
+<p><strong>Python:</strong> <tt class="docutils literal"><span class="pre">analyseMousePath()</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">analyseMousePath</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Performs the mouse path&#39;s analysis filling the related variables.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="showpath">
+<h3>showPath<a class="headerlink" href="#showpath" title="Permalink to this headline">¶</a></h3>
+<p>Rutina de Debug para ver el resultado final, con fantasmas y Target, del recorrido del Ratón. Muestra una imagen con esta información en un ambiente de OpenCV</p>
+<p><strong>Python:</strong> <tt class="docutils literal"><span class="pre">showPath()</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">showPath</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Shows the mouse&#39;s path, the target and the pool&#39;s sectors.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="getnumentriesquad">
+<h3>getNumEntriesQuad<a class="headerlink" href="#getnumentriesquad" title="Permalink to this headline">¶</a></h3>
+<p>Regresa el numero de Entradas al cuadrante del Target.</p>
+<p><strong>Python:</strong> Int : <tt class="docutils literal"><span class="pre">getNumEntriesQuad()</span></tt></p>
+</div>
+<div class="section" id="getnumtimesinquad">
+<h3>getNumTimesInQuad<a class="headerlink" href="#getnumtimesinquad" title="Permalink to this headline">¶</a></h3>
+<p>Regresa la cantidad de Frames en el cuadrante del Target.</p>
+<p><strong>Python:</strong> Dict : <tt class="docutils literal"><span class="pre">getNumTimesInQuad()</span></tt></p>
+</div>
+<div class="section" id="gettimeinquad">
+<h3>getTimeInQuad<a class="headerlink" href="#gettimeinquad" title="Permalink to this headline">¶</a></h3>
+<p>Regresa la cantidad de segundos en el cuadrante del Target.</p>
+<p><strong>Python:</strong> Dict : <tt class="docutils literal"><span class="pre">getTimeInQuad()</span></tt></p>
+</div>
+<div class="section" id="getnumtargetcrosses">
+<h3>getNumTargetCrosses<a class="headerlink" href="#getnumtargetcrosses" title="Permalink to this headline">¶</a></h3>
+<p>Regresa la cantidad de cruces sobre el Target.</p>
+<p><strong>Python:</strong> Dict : <tt class="docutils literal"><span class="pre">getNumTargetCrosses()</span></tt></p>
+</div>
+<div class="section" id="gettotaltime">
+<h3>getTotalTime<a class="headerlink" href="#gettotaltime" title="Permalink to this headline">¶</a></h3>
+<p>Regresa la cantidad total de segundos que dura el video.</p>
+<p><strong>Python:</strong> Dict : <tt class="docutils literal"><span class="pre">getTotalTime()</span></tt></p>
+</div>
+<div class="section" id="generatereport">
+<h3>generateReport<a class="headerlink" href="#generatereport" title="Permalink to this headline">¶</a></h3>
+<p>Genera el Reporte en un .txt con las variables requeridas en la prueba de Transferencia.</p>
+<p><strong>Python:</strong> Dict : <tt class="docutils literal"><span class="pre">generateReport()</span></tt></p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Pool.py</a><ul>
+<li><a class="reference internal" href="#pool-object">Pool(object)</a><ul>
+<li><a class="reference internal" href="#pool"><strong>Pool</strong></a></li>
+<li><a class="reference internal" href="#getbasephotopath">getBasePhotoPath</a></li>
+<li><a class="reference internal" href="#initmouseposition">initMousePosition</a></li>
+<li><a class="reference internal" href="#inittargetposition">initTargetPosition</a></li>
+<li><a class="reference internal" href="#on-mouse">on_mouse</a></li>
+<li><a class="reference internal" href="#grabtargetposition">grabTargetPosition</a></li>
+<li><a class="reference internal" href="#checkcurrquad">checkCurrQuad</a></li>
+<li><a class="reference internal" href="#updatecurrquad">updateCurrQuad</a></li>
+<li><a class="reference internal" href="#updatetimesinquad">updateTimesInQuad</a></li>
+<li><a class="reference internal" href="#checkentrytotargetquadrad">checkEntryToTargetQuadrad</a></li>
+<li><a class="reference internal" href="#pointinghosts">pointInGhosts</a></li>
+<li><a class="reference internal" href="#checkintarget">checkInTarget</a></li>
+<li><a class="reference internal" href="#updateintarget">updateInTarget</a></li>
+<li><a class="reference internal" href="#checktargetiscrossed">checkTargetIsCrossed</a></li>
+<li><a class="reference internal" href="#updatecurrpos">updateCurrPos</a></li>
+<li><a class="reference internal" href="#analysemousepath">analyseMousePath</a></li>
+<li><a class="reference internal" href="#showpath">showPath</a></li>
+<li><a class="reference internal" href="#getnumentriesquad">getNumEntriesQuad</a></li>
+<li><a class="reference internal" href="#getnumtimesinquad">getNumTimesInQuad</a></li>
+<li><a class="reference internal" href="#gettimeinquad">getTimeInQuad</a></li>
+<li><a class="reference internal" href="#getnumtargetcrosses">getNumTargetCrosses</a></li>
+<li><a class="reference internal" href="#gettotaltime">getTotalTime</a></li>
+<li><a class="reference internal" href="#generatereport">generateReport</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="MorrisPool.html"
+                        title="previous chapter">MorrisPool.py</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="camTest.html"
+                        title="next chapter">camTest.py</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/Pool.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="camTest.html" title="camTest.py"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="MorrisPool.html" title="MorrisPool.py"
+             >previous</a> |</li>
+        <li><a href="index.html">OpenFieldTest 2.1.4 documentation</a> &raquo;</li>
+          <li><a href="classes.html" >Archivos de MorrisField</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Mario Coutino.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

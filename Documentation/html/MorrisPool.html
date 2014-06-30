@@ -1,0 +1,219 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>MorrisPool.py &mdash; OpenFieldTest 2.1.4 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.1.4',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="OpenFieldTest 2.1.4 documentation" href="index.html" />
+    <link rel="up" title="Archivos de MorrisField" href="classes.html" />
+    <link rel="next" title="camTest.py" href="camTest.html" />
+    <link rel="prev" title="VideoFile.py" href="VideoFile.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="camTest.html" title="camTest.py"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="VideoFile.html" title="VideoFile.py"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">OpenFieldTest 2.1.4 documentation</a> &raquo;</li>
+          <li><a href="classes.html" accesskey="U">Archivos de MorrisField</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="morrispool-py">
+<span id="classes"></span><h1>MorrisPool.py<a class="headerlink" href="#morrispool-py" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="morrispool-object">
+<h2>MorrisPool(object)<a class="headerlink" href="#morrispool-object" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Position</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+   <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">   Main class for the MorrisPool&#39;s experiment analysis.</span>
+<span class="sd">   &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+<p><strong>Atributos de la Clase:</strong></p>
+<p>Float   : tinaLenght
+Lista   : videoSequence
+Int     : videoLenght
+Lista   : mousePath
+Lista   : mousePathA
+Float   : poolRadio
+Float   : poolCenter
+Int     : seqIndex
+Int     : convFactor
+Img     : baseFrame
+Img     : poolImg
+Float   : realDistance</p>
+<div class="section" id="morrispool">
+<h3><strong>MorrisPool</strong><a class="headerlink" href="#morrispool" title="Permalink to this headline">¶</a></h3>
+<p>Constructor de la Clase MorrisPool</p>
+<p><strong>Python:</strong> <tt class="docutils literal"><span class="pre">MorrisPool(videoSequence,</span> <span class="pre">initPoint,</span> <span class="pre">endPoint)</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">videoSequence</span><span class="p">,</span> <span class="n">initPoint</span><span class="p">,</span> <span class="n">endPoint</span><span class="p">):</span>
+     <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">     Init the MorrisPool class. It takes the original video -videoSequence-</span>
+<span class="sd">     and cuts the frames in the interval (initPoint, endPoint).</span>
+<span class="sd">     videoSequence -&gt; List w/ frames</span>
+<span class="sd">     initPoint  -&gt; Int w/ starting point of the video</span>
+<span class="sd">     endPoint -&gt; Int w/ ending point of the video</span>
+<span class="sd">     &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="initpoolposition">
+<h3>initPoolPosition<a class="headerlink" href="#initpoolposition" title="Permalink to this headline">¶</a></h3>
+<p>Comienza el pre-poceso para adquirir la informaci[on de la piscina.</p>
+<p><strong>Python:</strong> <tt class="docutils literal"><span class="pre">initPoolPosition()</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">initPoolPosition</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+     <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">     Inits the preprocessing of the video. It retrieves all the geometric</span>
+<span class="sd">     information of the pool to start the analysis.</span>
+<span class="sd">     &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="starttracking">
+<h3>startTracking<a class="headerlink" href="#starttracking" title="Permalink to this headline">¶</a></h3>
+<p>Comienza el análisis del video. Permite observar el resultado (imagen sementada) si se desea.</p>
+<p><strong>Python:</strong> <tt class="docutils literal"><span class="pre">startTracking(showResult)</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">startTracking</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">showResult</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Performs the video&#39;s analysis. If it is desired, the segmented image can</span>
+<span class="sd">        be shown by using the variable: showResult.</span>
+<span class="sd">        showResult -&gt; Bool w/ True if the image will be displayed or False</span>
+<span class="sd">        otherwise</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="getrealdistance">
+<h3>getRealDistance<a class="headerlink" href="#getrealdistance" title="Permalink to this headline">¶</a></h3>
+<p>Regresa la distancia recorrida por el ratón en centímetros.</p>
+<p><strong>Python:</strong> Float : <tt class="docutils literal"><span class="pre">getRealDistance()</span></tt></p>
+</div>
+<div class="section" id="getmousepath">
+<h3>getMousePath<a class="headerlink" href="#getmousepath" title="Permalink to this headline">¶</a></h3>
+<p>Regresa la trayectoria recorrida por el raton como una lista con pares ordenados en el formato de la librería Numpy.</p>
+<p><strong>Python:</strong> Lista : <tt class="docutils literal"><span class="pre">getMousePath()</span></tt></p>
+</div>
+<div class="section" id="getpoolposition">
+<h3>getPoolPosition<a class="headerlink" href="#getpoolposition" title="Permalink to this headline">¶</a></h3>
+<p>Regresa el centro y el radio de la piscina detectada en el video en forma de Tupla: (poolCenter, poolRadio)</p>
+<p><strong>Python:</strong> Tupla : <tt class="docutils literal"><span class="pre">getPoolPosition()</span></tt></p>
+</div>
+<div class="section" id="getconvfactor">
+<h3>getConvFactor<a class="headerlink" href="#getconvfactor" title="Permalink to this headline">¶</a></h3>
+<p>Regresa el factor de conversión calculado para convertir pixeles a centímetros en el video actual.</p>
+<p><strong>Python:</strong> Float : <tt class="docutils literal"><span class="pre">getConvFactor()</span></tt></p>
+</div>
+<div class="section" id="getvideotimeins">
+<h3>getVideoTimeInS<a class="headerlink" href="#getvideotimeins" title="Permalink to this headline">¶</a></h3>
+<p>Regresa el tiempo del video, ya recortado, en segundos.</p>
+<p><strong>Python:</strong> Float : <tt class="docutils literal"><span class="pre">getVideoTimeInS()</span></tt></p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">MorrisPool.py</a><ul>
+<li><a class="reference internal" href="#morrispool-object">MorrisPool(object)</a><ul>
+<li><a class="reference internal" href="#morrispool"><strong>MorrisPool</strong></a></li>
+<li><a class="reference internal" href="#initpoolposition">initPoolPosition</a></li>
+<li><a class="reference internal" href="#starttracking">startTracking</a></li>
+<li><a class="reference internal" href="#getrealdistance">getRealDistance</a></li>
+<li><a class="reference internal" href="#getmousepath">getMousePath</a></li>
+<li><a class="reference internal" href="#getpoolposition">getPoolPosition</a></li>
+<li><a class="reference internal" href="#getconvfactor">getConvFactor</a></li>
+<li><a class="reference internal" href="#getvideotimeins">getVideoTimeInS</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="VideoFile.html"
+                        title="previous chapter">VideoFile.py</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="camTest.html"
+                        title="next chapter">camTest.py</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/MorrisPool.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="camTest.html" title="camTest.py"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="VideoFile.html" title="VideoFile.py"
+             >previous</a> |</li>
+        <li><a href="index.html">OpenFieldTest 2.1.4 documentation</a> &raquo;</li>
+          <li><a href="classes.html" >Archivos de MorrisField</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Mario Coutino.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

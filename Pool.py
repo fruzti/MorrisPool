@@ -28,8 +28,19 @@ from BasicClases import *
 from PolarCoords import *
 
 class Pool(object):
+    '''
+    Class designed for the Transfer's Analysis. Some of its methods are used to mark
+    where the target's platform is located in the image.
+    '''
     
     def __init__(self, poolCentre, mousePath, filePath):
+        '''
+        Init the Pool Object and starts the Target's localisation and Mouse's
+        initial position for the analysis.
+        poolCentre -> Int w/ the center of the pool
+        mousePath -> List w/ the mouse's path
+        filePath -> String w/ the path of the video
+        '''
         
         self.filePath = filePath
     
@@ -121,6 +132,11 @@ class Pool(object):
         self.targetGhostCoord += v.getGhostCoords()
         
     def on_mouse(self,event, x, y, flag, param):
+        '''
+        Adds a new Vertex to the target's position at a Mouse's Click.
+        OpenCV's Default Event
+        param -> Vertexes' Index.
+        '''
         if(event == cv2.EVENT_LBUTTONDOWN):
             self.targetPosition[param[0]] = (x,y)
             param[0] += 1 
@@ -216,7 +232,7 @@ class Pool(object):
     def checkEntryToTargetQuadrad(self):
         '''
         Increase the number of entries to the Quadrant if the mouse
-        crosses the boundarie into the target's Quadrant.
+        crosses the boundary into the target's Quadrant.
         '''
         if self.currQuad != self.prevQuad: #and self.currQuad == self.targetQuad:
             self.entriesPerQuad[self.currQuad] += 1
@@ -247,6 +263,8 @@ class Pool(object):
                 
     def pointInGhosts(self):
         '''
+        Checks if currPos is inside in one of the Target' Ghosts or inside the
+        Target. Return True if it is inside, False otherwise.
         '''
         for point in self.targetGhostCoord:
             if np.sqrt((point[0] - self.currPos[0])**2 + 
@@ -289,7 +307,7 @@ class Pool(object):
         
     def analyseMousePath(self):
         '''
-        Perfoms the mouse path's analysis filling the related variables.
+        Performs the mouse path's analysis filling the related variables.
         '''
         for pos in self.mousePath[1:]:
             self.updateCurrPos(pos)

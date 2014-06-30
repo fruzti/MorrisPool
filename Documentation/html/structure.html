@@ -1,0 +1,266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Estructura de MorrisPool &mdash; OpenFieldTest 2.1.4 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.1.4',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="OpenFieldTest 2.1.4 documentation" href="index.html" />
+    <link rel="next" title="Getting started" href="install.html" />
+    <link rel="prev" title="Funciones de MorrisPool" href="functions.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="install.html" title="Getting started"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="functions.html" title="Funciones de MorrisPool"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">OpenFieldTest 2.1.4 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="estructura-de-morrispool">
+<span id="getting-started"></span><h1>Estructura de MorrisPool<a class="headerlink" href="#estructura-de-morrispool" title="Permalink to this headline">¶</a></h1>
+<p>El programa consiste básicamente de siete archivos:
+- BasicClases.py
+- MainApp.py
+- MorrisPool.py
+- Pool.py
+- PolarCoords.py
+- VideoFile.py
+- DrawOutput.py</p>
+<p>y un archivo wrapper o de inicio: <strong>MainFile</strong>.</p>
+<div class="section" id="basicclases-py">
+<h2>BasicClases.py<a class="headerlink" href="#basicclases-py" title="Permalink to this headline">¶</a></h2>
+<p>Contiene las clases y funciones básicas usadas por el programa. Contiene funciones de apoyo para analizar el experimento y las necesarias para la generación de gráficas y reportes.</p>
+</div>
+<div class="section" id="drawoutput-py">
+<h2>DrawOutput.py<a class="headerlink" href="#drawoutput-py" title="Permalink to this headline">¶</a></h2>
+<p>Esta clase es la encargada de seleccionar que tipo de imagen se generará al final del experimento. Contiene los métodos necesarios para crear una imagen de salida en PNG con los resultados del experimento.</p>
+</div>
+<div class="section" id="videofile-py">
+<h2>VideoFile.py<a class="headerlink" href="#videofile-py" title="Permalink to this headline">¶</a></h2>
+<p>Este archivo contiene una clase para la manipulación del video. Su utilización principal es para DEBUG, pero puede ser utilizada para suplir la necesidad de contar con el video. Aquí se piensa implementar una solución on-line al experimento.</p>
+</div>
+<div class="section" id="polarcoords-py">
+<h2>PolarCoords.py<a class="headerlink" href="#polarcoords-py" title="Permalink to this headline">¶</a></h2>
+<p>Esta clase es utilizada para calcular los fantasmas del Target. Contiene los métodos matemáticos, en coordenadas polares, para encontrar las representaciones de las áreas homologas al del Target en los otros cuadrantes.</p>
+</div>
+<div class="section" id="mainapp-py">
+<h2>MainApp.py<a class="headerlink" href="#mainapp-py" title="Permalink to this headline">¶</a></h2>
+<p>Este archivo contiene las rutinas necesarias para la creación de la interfaz gráfica y del recorte del video.</p>
+</div>
+<div class="section" id="morrispool-py">
+<h2>MorrisPool.py<a class="headerlink" href="#morrispool-py" title="Permalink to this headline">¶</a></h2>
+<p>Contiene la clase y métodos necesarios para comenzar el análisis para el experimento. Es aquí donde el trayecto del ratón es calculado y el reporte es generado.</p>
+</div>
+<div class="section" id="pool-py">
+<h2>Pool.py<a class="headerlink" href="#pool-py" title="Permalink to this headline">¶</a></h2>
+<p>Es aquí donde la clase que se encarga de realizar el análisis del experimento de transferencia es implementada.</p>
+</div>
+<div class="section" id="mainfile-py">
+<h2>MainFile.py<a class="headerlink" href="#mainfile-py" title="Permalink to this headline">¶</a></h2>
+<p>Finalmente, este Script es el encargado de poner todo junto y de interactuar con el usuario. Consta del llamado de todas las clases necesarias para el análisis y para escoger si la prueba se trata de una de transferencia o no.
+Además, es aquí donde se llama a la rutina para guardar la imagen final de salida.</p>
+<div class="highlight-python"><div class="highlight"><pre>
+</pre></div>
+</div>
+<p>#                        All Rights Reserved                                #
+#                                                                           #
+# Permission to use, copy, modify, and distribute this software and         #
+# its documentation for any purpose and without fee is hereby               #
+# granted, provided that the above copyright notice appear in all           #
+# copies and that both that copyright notice and this permission            #
+# notice appear in supporting documentation, and that the name of Mario     #
+# Coutino not be used in advertising or publicity pertaining to             #
+# distribution of the software without specific, written prior              #
+# permission.                                                               #
+#                                                                           #
+# MARIO COUTINO DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE,      #
+# INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS, IN       #
+# NO EVENT SHALL MARIO COUTINO BE LIABLE FOR ANY SPECIAL, INDIRECT OR       #
+# CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS       #
+# OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT,                #
+# NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN                 #
+# CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.                  #
+#############################################################################</p>
+<p>from MainApp import *
+from MorrisPool import *
+from BasicClases import *
+from Pool import *
+from DrawOutput import *
+import cv2</p>
+<dl class="docutils">
+<dt>def createBasePhoto(filePath,img):</dt>
+<dd><p class="first">&#8216;&#8217;&#8217;
+Helper function to create the image to mark the target&#8217;s position.
+&#8216;&#8217;&#8217;
+basePath = &#8216;&#8217;
+pathParts = filePath.split(&#8216;/&#8217;)
+for el in pathParts[:-1]:</p>
+<blockquote>
+<div>basePath += el + &#8216;/&#8217;</div></blockquote>
+<p>basePath += &#8216;basePhoto.png&#8217;</p>
+<p class="last">return cv2.imwrite(basePath, img)</p>
+</dd>
+<dt>def convListToTuple(l):</dt>
+<dd><p class="first">t = []
+for e in  l:</p>
+<blockquote>
+<div>t.append((e[0],e[1]))</div></blockquote>
+<p class="last">return t</p>
+</dd>
+</dl>
+<p>#&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-
+videoSequence = None
+start, end = (0,0)
+mousePath = None
+morrisPool = None
+#&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-</p>
+<p>print &#8216;Iniciando Aplicacion&#8217;
+w = MainApp()</p>
+<p>videoSequence = w.getVideoSequence()
+(start,end) = w.getSequenceBoundaries()</p>
+<p>print &#8216;Creando Entorno&#8217;
+print &#8216;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8217;
+morrisPool = MorrisPool(videoSequence, start, end)</p>
+<p>print &#8216;Comenzando Deteccion&#8217;
+print &#8216;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8217;
+morrisPool.startTracking(None)</p>
+<p>morrisPool.getRealDistance2(w.getPathName())</p>
+<p>mousePath = morrisPool.getMousePath()</p>
+<p>generateReport(mousePath, morrisPool.getRealDistance(), morrisPool.getConvFactor())</p>
+<p>print &#8216;Total Swimming Time[s]: &#8216; + str(morrisPool.getVideoTimeInS())</p>
+<p>op = raw_input(&#8216;Transfer Experiment? [y/n]: &#8216;)
+op = op.lower()</p>
+<dl class="docutils">
+<dt>if op == &#8216;y&#8217;:</dt>
+<dd><p class="first">print &#8216;Continue with Transference Analysis&#8217;
+print &#8216;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8217;
+(centre, rad) = morrisPool.getPoolPosition()
+p = Pool(centre, convListToTuple(mousePath), w.getPathName())
+p.analyseMousePath()
+p.showPath()
+d = DrawOutput(morrisPool.poolRadio, morrisPool.poolCenter,</p>
+<blockquote>
+<div>p.targetPosition,morrisPool.mousePathA)</div></blockquote>
+<p class="last">p.generateReport()
+print &#8216;Analysis Finished&#8217;
+print &#8216;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8217;
+print &#8216;Done!&#8217;</p>
+</dd>
+<dt>else:</dt>
+<dd><p class="first">print &#8216;Creating Base Image...&#8217;
+print &#8216;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8217;
+createBasePhoto(w.getPathName(), videoSequence[0])
+(centre, rad) = morrisPool.getPoolPosition()
+p = Pool(centre, convListToTuple(mousePath), w.getPathName())
+d = DrawOutput(morrisPool.poolRadio, morrisPool.poolCenter,</p>
+<blockquote>
+<div>p.targetPosition,morrisPool.mousePathA)</div></blockquote>
+<p class="last">print &#8216;Done!&#8217;</p>
+</dd>
+</dl>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Estructura de MorrisPool</a><ul>
+<li><a class="reference internal" href="#basicclases-py">BasicClases.py</a></li>
+<li><a class="reference internal" href="#drawoutput-py">DrawOutput.py</a></li>
+<li><a class="reference internal" href="#videofile-py">VideoFile.py</a></li>
+<li><a class="reference internal" href="#polarcoords-py">PolarCoords.py</a></li>
+<li><a class="reference internal" href="#mainapp-py">MainApp.py</a></li>
+<li><a class="reference internal" href="#morrispool-py">MorrisPool.py</a></li>
+<li><a class="reference internal" href="#pool-py">Pool.py</a></li>
+<li><a class="reference internal" href="#mainfile-py">MainFile.py</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="functions.html"
+                        title="previous chapter">Funciones de MorrisPool</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="install.html"
+                        title="next chapter">Getting started</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/structure.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="install.html" title="Getting started"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="functions.html" title="Funciones de MorrisPool"
+             >previous</a> |</li>
+        <li><a href="index.html">OpenFieldTest 2.1.4 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Mario Coutino.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

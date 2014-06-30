@@ -1,0 +1,64 @@
+.. _getting_started:
+
+
+***************
+Funciones de MorrisPool
+***************
+
+Descripción de Funciones
+====================
+
+computeSpeed
+--------------------
+
+Calcula y regresa las velocidades instantáneas ( en el eje X y Y ) del ratón durante su recorrido.
+
+.. code-block:: python
+
+	def computeSpeed(startPosition,timeSteps):
+	    '''
+	    Computes the mouse velocity to the radio specified in the convFactor.
+    	    @param mousePosition w/ a 2D Array with the mouse position
+	    @param convFactor w/ a Float to convert px -> cm
+	    @param fps Int w/ the video's fps.
+	    @return Tupla w/ (SpeedX, SpeedY, TimeX, TimeY, TimeTotal)
+	    '''
+
+
+plotMousePath
+--------------------
+
+Grafica el recorrido descrito por el ratón durante el experimento.
+
+.. code-block:: python
+
+	def plotMousePath(mousePosition, numCols, numRows, name = 'Mouse'):
+	    '''
+	    Plots the tracking of the mouse's position over the simulation. 
+            mousePosition -> List with the Position for each timeStep
+	    '''
+
+printReport
+--------------------
+
+Función de apoyo para escribir en un .txt
+
+.. code-block:: python
+
+	def printReport(data, dataLabels, dataName, fileName, mode):
+	    '''
+	    Helper function to write into the .txt report file.
+	    '''
+
+generateReport
+--------------------
+
+Función que genera el reporte en PDF del experimento actual.
+
+.. code-block:: python
+
+	def printReport(data, dataLabels, dataName, fileName, mode):
+	    '''
+	    Generates the report of the current experiment.
+	    '''
+

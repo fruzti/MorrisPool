@@ -1,0 +1,70 @@
+.. _getting_started:
+
+
+***************
+Getting started
+***************
+
+.. _installing-docdir:
+
+Installing Enthought Canopy
+=============================
+
+You may already have `python <https://www.python.org>`_
+installed -- you can check by doing::
+
+  $ python 
+
+If that is the case (or not) you should download and install `Enthought Canopy's Python <https://www.enthought.com/downloads/>`_ 2.7 distribution. 
+
+Enthought Canopy's is a multi-platform python distribution, and it has several licensed products. The **free** option is enough for running the code in any machine.
+
+Installing OpenCV 2.4.6 >
+=============================
+
+Due performance issues the image processing part of the software the open library **OpenCV** is used. To download the latest version click `here <http://opencv.org>`_.
+
+For most operating systems (OS) the process to link openCV to python is straight forward, but when using Enthought Canopy IDE it becomes a cucumbersome with Linux, specially.
+
+The recommended SO for this application is Windows, but if you can link OpenCV with python in any other SO it will work smoothly. 
+
+**Note:** After downloading OpenCV perform the next steps.
+
+Linking OpenCV and Canopy in Windows
+------------------------------
+
+It is just as simple as copy and paste. 
+
+1. Download Python, Numpy, OpenCV from their official sites.
+*(If you already use Canopy there is not need to download Numpy)*
+
+2. Extract OpenCV (will be extracted to a folder opencv)
+
+3. Copy ..\opencv\build\python\x86\2.7\cv2.pyd
+
+4. Paste it in C:\Python27\Lib\site-packages
+
+5. Open Python IDLE or terminal, and type::
+
+	>>> import cv2
+	
+**Note:** If you decided to **NOT** work with Canopy the above steps are keep just with the difference that `PyLab <http://wiki.scipy.org/PyLab>`_ and `Numpy <http://www.numpy.org>`_ must be in your system.
+
+Using the Software
+=============================
+When all the dependencies are installed in your system and OpenCV is working correctly with Canopy you are ready to use the software.
+To run the application, after setting up the experiment, you must have the files mentioned in MorrisPool’s Structure in your working directory.
+
+Starting the application is pretty easy, just press **cntrl + r** with the file **MainFile.py** open.
+
+- Now, you should put the path of your video into the text entry in the current window and press **LoadVideo**.
+- Close all the remaining windows to continue
+- In the new window select, using the sliders, where to cut the video and press in the button **StartAnalysis**
+- When the analysis is finish, a quest will emerge in console, depending of the type of analysis press **Y** or **N** for the transfer experiment.
+- After you selected the type of trial, a new window will pop-up and you will have, now, to select where the target position is using the mouse and clicking in the *Four Corners Points*
+- To finish the analysis press *ESC* and wait for the results.
+- All, the images and the .txt, will be allocated on your user folder at the end of the analysis.
+
+*Note*
+
+If you are using a **Transfer Experiment** you should look on the **DrawOutput** page to see the instruction for creating the image.

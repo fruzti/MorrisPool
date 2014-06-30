@@ -1,0 +1,112 @@
+.. _classes:
+
+PolarCoords.py
+====================
+
+VectorPolar(object)
+--------------------
+
+.. code-block:: python
+
+	class VectorPolar(object):
+	   '''
+	   Helper Class for Target’s Ghosts creation.
+	   '''
+	
+**Atributos de la Clase:**
+
+Tupla	: centre
+Float	: rho
+Float	: theta
+Lista	: ghostCoords
+
+
+**VectorPolar**
+++++++++++++++++++++
+
+Constructor de Clase VectorPolar
+
+**Python:** ``VectorPolar(x, y, centre)``
+
+.. code-block:: python
+
+    def __init__(self, x, y, centre):
+	 '''
+	 Vector init function.
+         @param x,y int vector space-coordinates
+         @param (x1,y1) int tuple w/ centre coordinates
+	 '''
+	
+calculateRho
+++++++++++++++++++++
+
+Calcula la distancia del punto al centro (Rho).
+
+**Python:** String : Float : ``getBasePhotoPath(x,y, centre)``
+
+.. code-block:: python
+
+    def calculateRho(self,x,y, centre):
+	 '''
+	 Computes the rho parameter in polar coordinates with the 
+         new center 'centre' and the space coordinates (x,y)
+         @param x,y int vector space-coordinates
+         @param centre int tuple w/ center coordinates
+         @return float rho parameter for polar coordinates
+	 '''
+	
+calculateTheta
+++++++++++++++++++++
+
+Calcula el ángulo del centro al punto (Theta).
+
+**Python:** Float : ``calculateTheta(x,y,centre)``
+
+.. code-block:: python
+
+	def calculateTheta(self,x,y, centre):
+	        '''
+		Computes the theta parameter in polar coordinates with the 
+	        new center 'centre' and the space coordinates (x,y)
+        	@param x,y int vector space-coordinates
+	        @param centre int tuple w/ center coordinates
+        	@return float theta parameter for polar coordinates
+		'''
+	        
+
+createGhosts
+++++++++++++++++++++
+
+Calcula las coordenas, dentro de la piscina, de cada uno de los fantasmas del Target.
+
+**Python:** ``createGhosts()``
+
+.. code-block:: python
+
+	def createGhosts(self):
+	        '''
+	        Computes the ghosts' coordinates (x,y) for the new points for 
+        	each of the four quadrants. Store the result in 'ghostCoords'
+	        '''
+
+newGhost
+++++++++++++++++++++
+
+Calcula y regresa la posición del fantasma k del Target.
+
+**Python:** Tupla : ``newGhost(k)``
+
+.. code-block:: python
+
+	def newGhost(self,k):
+	        '''
+	        Creates a new ghost adding a rotation of k*pi radians.
+        	@return (x,y) w/ the new ghost's coordinates.
+	        '''
+
+getGhostCoords
+++++++++++++++++++++
+
+Regresa las coordenadas de todos los fantasmas del Target.
+
+**Python:** Dict : ``getGhostCoords()``

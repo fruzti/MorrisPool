@@ -1,0 +1,23 @@
+.. _getting_started:
+
+
+***************
+Software Overview
+***************
+
+.. _installing-docdir:
+
+Experiment's Results
+=============================
+
+A example experiment's result is presented to demonstrate the different capabilities of the software.
+
+  .. image:: _static/img1.png
+		:align: center
+
+Main software's output. The mouse can be observed and the dot in the middle represent the current position of the subject. Graphs are displayed for a better understanding.
+
+  .. image:: _static/img2.png
+		:align: center
+
+A pdf file is created with the desired graphs (velocity, path, latency, etc..). In addition a .txt file is also created to be used for post-processing in different statistical software.

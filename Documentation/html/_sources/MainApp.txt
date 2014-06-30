@@ -1,0 +1,102 @@
+.. _classes:
+
+MainApp.py
+====================
+
+MainApp(object)
+--------------------
+
+.. code-block:: python
+
+	class MainApp(object):
+	   '''
+	   Clase para la creación de la interfaz gráfica para la aplicación. Permite realizar el recorte del video para comenzar el análisis del video.
+	   '''
+
+**MainApp**
+++++++++++++++++++++
+
+MainApp constructor.
+
+**Python:** ``MainApp()``
+
+.. code-block:: python
+
+    def __init__(self):
+	 '''
+	 Inicia la interfaz gráfica y carga todos los Widgets necesarios para recortar el video.
+	 '''
+	
+loadVideoSequence
+++++++++++++++++++++
+
+Carga el video desde la ruta en la que se encuentra dentro del equipo.
+
+**Python:** ``loadVideoSequence()``
+
+.. code-block:: python
+
+    def loadVideoSequence(self):
+	 '''
+	 Carga el video desde su locación en el equipo. Luego de cargarlo, continua la creación de la interfaz gráfica.  
+	 '''
+	
+createThirdLevel
+++++++++++++++++++++
+
+Crea el :tercer nivel: de la aplicación gráfica
+
+**Python:** ``createThirdLevel(startInit, startEnd, stopInit, stopEnd)``
+
+.. code-block:: python
+
+	def createThirdLevel(self, startInit, startEnd, stopInit, stopEnd):
+	        '''
+	        Crea el tercer nivel de la aplicación para continuar con el análisis.
+		startInit : Posición inicial para recortar el inicio del video.
+		startEnd  : Posición final para recortar el inicio del video.
+		stopStart : Posición inicial para recortar el final del video.
+		stopEnd : Posición final para recortar el final del video.
+	        '''
+startApp
+++++++++++++++++++++
+
+Comienza el análisis del video. Destruye la interfaz gráfica.
+
+**Python:** ``startApp()``
+
+.. code-block:: python
+
+	def startApp(self):
+	        '''
+	        Comienza el análisis del video. Destruye la interfaz gráfica.
+	        '''
+
+getVideoSequence
+++++++++++++++++++++
+
+Regresa la lista que contiene la lista de frames con el video.
+
+**Python:** Lista : ``getVideoSequence()``
+
+getSequenceBoundaries
+++++++++++++++++++++
+
+Regresa una tupla con la información de inicio y final del video. 
+Numero de Frame.
+
+**Python:** Tupla : ``getSequenceBoundaries()``
+
+getPathName
+++++++++++++++++++++
+
+Regresa la información de ruta del archivo del video.
+
+**Python:** String : ``getPathName()``
+
+startRotutine
+++++++++++++++++++++
+
+Inicia el ciclo de inicio y actualización de la interfaz gráfica del video.
+
+**Python:** ``startRotutine()``

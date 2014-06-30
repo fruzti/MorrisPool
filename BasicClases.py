@@ -83,6 +83,11 @@ def plotMousePath(mousePosition, numCols, numRows, name = 'Mouse'):
 
 def computeSpeed(mousePosition, convFactor = 1, fps = 30):
     """
+    Computes the mouse velocity to the radio specified in the convFactor.
+    @param mousePosition w/ a 2D Array with the mouse position
+    @param convFactor w/ a Float to convert px -> cm
+    @param fps Int w/ the video's fps.
+    @return Tupla w/ (SpeedX, SpeedY, TimeX, TimeY, TimeTotal)
     """
     
     pointX = mousePosition[0:,0]

@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>PolarCoords.py &mdash; OpenFieldTest 2.1.4 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.1.4',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="OpenFieldTest 2.1.4 documentation" href="index.html" />
+    <link rel="up" title="Archivos de MorrisField" href="classes.html" />
+    <link rel="next" title="OpenField’s Functions" href="functions.html" />
+    <link rel="prev" title="Pool.py" href="Pool.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="functions.html" title="OpenField’s Functions"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Pool.html" title="Pool.py"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">OpenFieldTest 2.1.4 documentation</a> &raquo;</li>
+          <li><a href="classes.html" accesskey="U">Archivos de MorrisField</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="polarcoords-py">
+<span id="classes"></span><h1>PolarCoords.py<a class="headerlink" href="#polarcoords-py" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="vectorpolar-object">
+<h2>VectorPolar(object)<a class="headerlink" href="#vectorpolar-object" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">VectorPolar</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+   <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">   Helper Class for Target’s Ghosts creation.</span>
+<span class="sd">   &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+<p><strong>Atributos de la Clase:</strong></p>
+<p>Tupla   : centre
+Float   : rho
+Float   : theta
+Lista   : ghostCoords</p>
+<div class="section" id="vectorpolar">
+<h3><strong>VectorPolar</strong><a class="headerlink" href="#vectorpolar" title="Permalink to this headline">¶</a></h3>
+<p>Constructor de Clase VectorPolar</p>
+<p><strong>Python:</strong> <tt class="docutils literal"><span class="pre">VectorPolar(x,</span> <span class="pre">y,</span> <span class="pre">centre)</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">centre</span><span class="p">):</span>
+     <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">     Vector init function.</span>
+<span class="sd">     @param x,y int vector space-coordinates</span>
+<span class="sd">     @param (x1,y1) int tuple w/ centre coordinates</span>
+<span class="sd">     &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="calculaterho">
+<h3>calculateRho<a class="headerlink" href="#calculaterho" title="Permalink to this headline">¶</a></h3>
+<p>Calcula la distancia del punto al centro (Rho).</p>
+<p><strong>Python:</strong> String : Float : <tt class="docutils literal"><span class="pre">getBasePhotoPath(x,y,</span> <span class="pre">centre)</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">calculateRho</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">centre</span><span class="p">):</span>
+     <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">     Computes the rho parameter in polar coordinates with the</span>
+<span class="sd">     new center &#39;centre&#39; and the space coordinates (x,y)</span>
+<span class="sd">     @param x,y int vector space-coordinates</span>
+<span class="sd">     @param centre int tuple w/ center coordinates</span>
+<span class="sd">     @return float rho parameter for polar coordinates</span>
+<span class="sd">     &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="calculatetheta">
+<h3>calculateTheta<a class="headerlink" href="#calculatetheta" title="Permalink to this headline">¶</a></h3>
+<p>Calcula el ángulo del centro al punto (Theta).</p>
+<p><strong>Python:</strong> Float : <tt class="docutils literal"><span class="pre">calculateTheta(x,y,centre)</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">calculateTheta</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">centre</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Computes the theta parameter in polar coordinates with the</span>
+<span class="sd">        new center &#39;centre&#39; and the space coordinates (x,y)</span>
+<span class="sd">        @param x,y int vector space-coordinates</span>
+<span class="sd">        @param centre int tuple w/ center coordinates</span>
+<span class="sd">        @return float theta parameter for polar coordinates</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="createghosts">
+<h3>createGhosts<a class="headerlink" href="#createghosts" title="Permalink to this headline">¶</a></h3>
+<p>Calcula las coordenas, dentro de la piscina, de cada uno de los fantasmas del Target.</p>
+<p><strong>Python:</strong> <tt class="docutils literal"><span class="pre">createGhosts()</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">createGhosts</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Computes the ghosts&#39; coordinates (x,y) for the new points for</span>
+<span class="sd">        each of the four quadrants. Store the result in &#39;ghostCoords&#39;</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="newghost">
+<h3>newGhost<a class="headerlink" href="#newghost" title="Permalink to this headline">¶</a></h3>
+<p>Calcula y regresa la posición del fantasma k del Target.</p>
+<p><strong>Python:</strong> Tupla : <tt class="docutils literal"><span class="pre">newGhost(k)</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">newGhost</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">k</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Creates a new ghost adding a rotation of k*pi radians.</span>
+<span class="sd">        @return (x,y) w/ the new ghost&#39;s coordinates.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="getghostcoords">
+<h3>getGhostCoords<a class="headerlink" href="#getghostcoords" title="Permalink to this headline">¶</a></h3>
+<p>Regresa las coordenadas de todos los fantasmas del Target.</p>
+<p><strong>Python:</strong> Dict : <tt class="docutils literal"><span class="pre">getGhostCoords()</span></tt></p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">PolarCoords.py</a><ul>
+<li><a class="reference internal" href="#vectorpolar-object">VectorPolar(object)</a><ul>
+<li><a class="reference internal" href="#vectorpolar"><strong>VectorPolar</strong></a></li>
+<li><a class="reference internal" href="#calculaterho">calculateRho</a></li>
+<li><a class="reference internal" href="#calculatetheta">calculateTheta</a></li>
+<li><a class="reference internal" href="#createghosts">createGhosts</a></li>
+<li><a class="reference internal" href="#newghost">newGhost</a></li>
+<li><a class="reference internal" href="#getghostcoords">getGhostCoords</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="Pool.html"
+                        title="previous chapter">Pool.py</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="functions.html"
+                        title="next chapter">OpenField&#8217;s Functions</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/VectorPolar.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="functions.html" title="OpenField’s Functions"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Pool.html" title="Pool.py"
+             >previous</a> |</li>
+        <li><a href="index.html">OpenFieldTest 2.1.4 documentation</a> &raquo;</li>
+          <li><a href="classes.html" >Archivos de MorrisField</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Mario Coutino.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

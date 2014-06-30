@@ -1,0 +1,464 @@
+.. _classes:
+
+MainClasses.py
+====================
+
+MainClass(object)
+--------------------
+
+.. code-block:: python
+
+	class MainClass(object):
+	    '''
+	    Main Class where all the processing is carried on. From here is possible to
+	    call the rest of the routines to detect the mouse and its position in the
+	    image.
+	    '''
+
+**Class Attributes:**
+
++--------------+----------------+
+|    Type      |    Name        |
++==============+================+
+|Double        | segPerFrame    |
++--------------+----------------+
+|List[Matrix]  | videoSequence  |
++--------------+----------------+
+| Int          | thMouse        |
++--------------+----------------+
+| Int          | thField        |
++--------------+----------------+
+| Int          | maxX           |
++--------------+----------------+
+| Int          | minX           |
++--------------+----------------+
+| Int          | maxY           |
++--------------+----------------+
+| Int          | minX           |
++--------------+----------------+
+|List[Position]| Centroid       |
++--------------+----------------+
+|Matrix        | fieldImg       |
++--------------+----------------+
+|Matrix        | mouseImg       |
++--------------+----------------+
+|Matrix        | procImg        |
++--------------+----------------+
+|Field         | field          |
++--------------+----------------+
+|Class         | typeOfMouse    |
++--------------+----------------+
+|Matrix        | currImg        |
++--------------+----------------+
+|Mouse         | mouse          |
++--------------+----------------+
+|String        | name           |
++--------------+----------------+
+|Int           | numCols        |
++--------------+----------------+
+|Int           | numRows        |
++--------------+----------------+
+
+**MainClass**
+++++++++++++++++++++
+
+MainClass default constructor.
+
+**Python:** ``MainClass(self, videoSequence, typeOfMouse, numCols, numRows, fps = 30, thMouse = 100, thField = 30)``
+
+.. code-block:: python
+
+    def __init__(self, videoSequence, typeOfMouse, numCols, numRows, fps = 30, thMouse = 100, thField = 30):
+	        '''
+	        Init method of the MainClass and initilized the desired 'typeOfMouse' 
+	        mouse and the field's grid.
+	            videoSequence -> list with the sequence of frames to analize
+	            typeOfMouse -> classType of the mouse that it is going to be detected
+	            numCols -> int number of colums in the grid
+	            numrows -> int number of rows in the grid
+	        '''
+	
+cvtGray
+++++++++++++++++++++
+
+Convert the format of currImg to gray scale.
+
+**Python:** ``cvtGray()``
+
+.. code-block:: python
+
+    def cvtGray(self):
+	        '''
+	        Converts 'currImg' to gray-scale if it is from a different type.
+	        '''
+
+preImg
+++++++++++++++++++++
+
+Applies some preprocessing to the acquired image.
+
+**Python:** ``preImg()``
+
+.. code-block:: python
+
+    def preImg(self):
+        '''
+        Performs several operations with the image to adjust the quality
+        of the image and smooth it too.
+        It also detects and updates the field's boundaries to compute the
+        ROI in the image to be processed.
+        '''
+
+findMouse
+++++++++++++++++++++
+
+Wrapper function to segment the test subject (mouse).
+
+**Python:** ``findMouse()``
+
+.. code-block:: python
+
+    def findMouse(self):
+	        '''
+	        Calls the static method /findMouse/ of the 'typeOfMouse' to
+	        search for the mouse in the image, and updates the 'mouseimg' in
+	        the class.
+	        '''
+
+isolateMouse
+++++++++++++++++++++
+
+Processes the image to remove all artefacts and isolate the test subject.
+
+**Python:** ``isolateMouse()``
+
+.. code-block:: python
+
+    def isolateMouse(self):
+	        '''
+	        Optional method used to remove the horizontal and vertical 
+	        bars that are present in some of the test videos. It performs a series
+	        of morphological operations with different kernels {[1,1,1,1,1] , 
+	        [1,1,1,1,1]' , ones(5,5)} to enhance the result in the detection of 
+	        the mouse's position.
+	        Updates the procImg that is the result of a 'and' operation between
+	        the 'fieldImg' (ROI) and the 'mouseImg'.
+	        '''
+
+computeMouseCentroid
+++++++++++++++++++++
+
+Main routine to acquire the mouse position.
+
+**Python:** ``computeMouseCentroid(initRun = False)``
+
+.. code-block:: python
+
+    def computeMouseCentroid(self, initRun = False):
+	        '''
+	        Computes the centroid of the contour found in the 'procImg' where
+	        is expected to exist only one: the mouse.
+	        The method uses the moments' approach to computes the centroid of the
+	        object and updates the list 'Centroid' with the result.
+	        Also, a circle is drawn in the 'currImg' to see the result of the
+	        process.
+	            initRun -> boolean to specify if the initilization routine is going
+	                        to take place. By default is set to False.
+	        '''
+
+applyProcessing
+++++++++++++++++++++
+
+Wrapper function to process current frame.
+
+**Python:** ``applyProcessing()``
+
+.. code-block:: python
+
+    def applyProcessing(self, initRun = False):
+	        '''
+	        Wrapper function to perform all the operation in the 'currImg'
+	        '''
+
+grabNextFrameFromWebcam
+++++++++++++++++++++
+
+Acquires new frame from device.
+
+**Python:** *Raise Exception* : ``grabNextFrameFromWebcam(frame)``
+
+.. code-block:: python
+
+    def grabNextFrameFromWebcam(self, frame):
+	        '''
+	        Tries to catch a new frame and assign it to 'self.currImg' raising
+	        an error if an exception is encountered.
+	        '''
+
+acquireFromWebCam
+++++++++++++++++++++
+
+Wrapper function to acquire new frame from attached device.
+
+**Python:** ``acquireFromWebCam(cam)``
+
+.. code-block:: python
+
+    def acquireFromWebCam(self, cam):
+	        '''
+	        Wrapper function which perform the analysis of the frame stream 
+	        in real time until the 'cam.stopRecording()' function is called.
+	        At that time, all the frames recorded are handled to the field
+	        inside the MainClass for future usage.
+	        '''
+	
+initFromWebCam
+++++++++++++++++++++
+
+Init the processing assuming that it will perform online. (For fast processors)
+
+**Python:** ``initFromWebCam(cam)``
+
+.. code-block:: python
+
+    def initFromWebCam(self, cam):
+	        '''
+	        Init function which take the firs mouse's image available and computes
+	        the initial position of the instance. Also, init the mouse field of the
+	        class and change the name of the current experiment.
+	        The acquisition only starts after a 'keyEvent = <s>', that is when the 
+	        recording starts.
+	        '''
+
+runAppWebCam
+++++++++++++++++++++
+
+Main routine to process the experiment "online". (Same time as acquisition)
+
+**Python:** ``runAppWebCam(cam)``
+
+.. code-block:: python
+
+    def runAppWebCam(self, cam):
+	        '''
+	        Main routine of the class that perform all the operations to
+	        localise the mouse, computes its position and generates the report.
+	        It use a RecordCam Object 'cam' to make the acquisition directly 
+	        from the source.
+	        '''
+
+frameGenerator
+++++++++++++++++++++
+
+Generator function to strip frames from videoSequence.
+
+**Python:** *yield* Image : ``frameGenerator()``
+
+.. code-block:: python
+
+    def frameGenerator(self):
+	        '''
+	        Generator function to acquire each of the frames
+	        in 'self.videoSequence'
+	        returns frame
+	        '''
+
+grabNextFrameFromSequence
+++++++++++++++++++++
+
+Routine to acquire next frame from the generator.
+
+**Python:** Bool : ``grabNextFrameFromSequence(f)``
+
+.. code-block:: python
+
+    def grabNextFrameFromSequence(self, f):
+	        '''
+	        Calls the frame-generator from the 'self.videoSequence' until
+	        it exhausts all the available frames.
+	        return boolean with True if there is an available frame or False
+	        otherwise.
+	        '''
+
+acquireFromSequence
+++++++++++++++++++++
+
+Wrapper method to init the processing from a *list* of **Images**. (Offline processing)
+
+**Python:** ``acquireFromSequence(showImage = True)``
+
+.. code-block:: python
+
+    def acquireFromSequence(self, showImage = True):
+	        '''
+	        Wrapper method to init the generator and start the processing
+	        over the 'self.videoSequence' until it runs out of available frames.
+	        '''
+
+runAppSequence
+++++++++++++++++++++
+
+Main routine to start the processing off-line.
+
+**Python:** ``runAppSequence(showImage = True)``
+
+.. code-block:: python
+
+    def runAppSequence(self, showImage = True):
+	        '''
+	        Main routine of the class that perform all the operations to
+	        localise the mouse, computes its position and generates the report.
+	        It use a video sequence previously uploaded to the class.
+	        '''
+
+runApp
+++++++++++++++++++++
+
+Main routine for processing. (Debug Proposes)
+
+**Python:** ``runApp()``
+
+.. code-block:: python
+
+    def runApp(self):
+	        '''
+	        [Debug Proposes]
+	        Main routine of the class that updates the 'currImg' with different
+	        sources {webCam, videoSequence} and call the 'applyProcessing' routine
+	        to analyse the image.
+	        It also calls the 'generateReport' function which create the report
+	        of the current experiment and shows the results. 
+	        '''
+	
+getArcLenght
+++++++++++++++++++++
+
+Return the length of the mouse's path. (Pixel distance)
+
+**Python:** Double : ``getArcLenght(arc)``
+
+.. code-block:: python
+
+    def getArcLenght(self,arc):
+	        '''
+	        Computes the length of the arc described by the list 'arc' of
+	        Position objects in PIXELS distances.
+	            arc <- list w/ Position objects
+	        return float w/ the length of the arc.
+	        '''
+
+getPathDistance
+++++++++++++++++++++
+
+Return the length of the mouse's path. (cm distance)
+
+**Python:** Double : ``getPathDistance(path)``
+
+.. code-block:: python
+
+    def getPathDistance(self, path):
+	        '''
+	        Gets the @real path's distance traveled by the mouse.
+	            path <- list w/ the mouse's path
+	        return float w/ path's distance in cm.
+	        '''
+
+getConvFactor
+++++++++++++++++++++
+
+Computes the conversion factor from px -> cm.
+
+**Python:** Double : ``getConvFactor()``
+
+.. code-block:: python
+
+    def getConvFactor(self):
+	        '''
+	        Computes the conversion factor to scale pixels unit to cm.
+	        returns float w/ the conversion factor px -> cm
+	        '''
+
+getVelocity
+++++++++++++++++++++
+
+Returns the velocity of the mouse and in which frames the velocity is greater than
+the desired sensitivity.
+
+**Python:** Tuple([Double],[Bool]) : ``getVelocity(sensitivity = 2)``
+
+.. code-block:: python
+
+    def getVelocity(self, sensitivity = 2):
+	        '''
+	        Computes the velocity of the mouse using discrete differentiation.
+	        Use a default 'sensitivity' value of 2 as threshold to discriminate 
+	        the mouse's movement.
+	            sensitivity <- int w/ the threshold value for movement. Default = 2
+	        return tuple:
+	                (array with mouse velocity
+	                &
+	                array boolean w/ the frames' index in where the movement is
+	                bigger than the threshold value)
+	        '''
+
+seeVelocityTest
+++++++++++++++++++++
+
+Debug routine to calibrate the adequate movement sensitivity.
+
+**Python:**  ``seeVelocityTest()``
+
+.. code-block:: python
+
+    def seeVelocityTest(self):
+	        '''
+	        Debug test for the velocity function. The video is presented with
+	        the dot in 'red' if the mouse is static and 'green' if the mouse
+	        is moving.
+	        '''
+
+latencyPlot
+++++++++++++++++++++
+
+Plots mouse's latency.
+
+**Python:**  ``latencyPlot(fileName)``
+
+.. code-block:: python
+
+    def latencyPlot(self, fileName):
+	        '''
+	        Function which plots the mouse's latency.
+	        '''
+
+generateReport
+++++++++++++++++++++
+
+Generates pdf report of the experiment.
+
+**Python:**  ``generateReport()``
+
+.. code-block:: python
+
+    def generateReport(self):
+	        '''
+	        Generates the report of the current experiment.
+	        '''
+
+waterMarkPdf
+++++++++++++++++++++
+
+Adds a watermark to the created pdf.
+
+**Python:**  ``waterMarkPdf(pdf)``
+
+.. code-block:: python
+
+    def waterMarkPdf(self, pdf):
+	        '''
+	        Generates a water mark for the reported pdf.
+	        '''
+
+
+
+

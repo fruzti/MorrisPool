@@ -1,0 +1,359 @@
+.. _classes:
+
+Pool.py
+====================
+
+Pool(object)
+--------------------
+
+.. code-block:: python
+
+	class Pool(object):
+	   '''
+	   Class designed for the Transfer's Analysis. Some of its methods are used to
+	   mark where the target's platform is located in the image.
+	   '''
+	
+**Atributos de la Clase:**
+
+String	: filePath
+
+Img	: poolImg
+
+Bool	: mouseState
+
+Int	: poolCentre
+
+Lista	: mousePath
+
+Tupla	: currPos
+
+Int	: xT
+
+Int	: yT
+
+Int	: rT
+
+Int	: numEntriesQuad
+
+Dict	: entriesPerQuad
+
+Dict	: numTimesInQuad
+
+Dict	: targetCrosses
+
+Tupla	: currQuad
+
+Tupla	: prevQuad
+
+Lista	: targetPosition
+
+Tupla	: targetQuad
+
+Int	: numTargetCrosses
+
+Bool	: inTarget
+
+Bool	: prevInTarget
+
+Lista	: targetGhostCoord
+
+
+**Pool**
+++++++++++++++++++++
+
+Constructor de Clase Pool
+
+**Python:** ``Pool(poolCentre, mousePath, filePath)``
+
+.. code-block:: python
+
+    def __init__(self, poolCentre, mousePath, filePath):
+	 '''
+	 Init the Pool Object and starts the Target's localisation and Mouse's
+	 initial position for the analysis.
+	 poolCentre -> Int w/ the center of the pool
+         mousePath -> List w/ the mouse's path
+         filePath -> String w/ the path of the video
+	 '''
+	
+getBasePhotoPath
+++++++++++++++++++++
+
+Regresa el PATH correcto para leer la imagen base que permita localizar la plataforma.
+
+**Python:** String : ``getBasePhotoPath()``
+
+.. code-block:: python
+
+    def getBasePhotoPath(self):
+	 '''
+	 Build the correct base photo's path for select the target position.
+         Returns a string with the path.
+	 '''
+	
+initMousePosition
+++++++++++++++++++++
+
+Inicia las variables correspondientes a la posición y localización del ratón en la piscina.
+
+**Python:** ``initMousePosition()``
+
+.. code-block:: python
+
+	def initMousePosition(self):
+	        '''
+	        Inits the mouse position with the first element of the path. Also, 
+        	updates the current quadrant and init the previous quadrant with the
+	        current quadrant.
+
+initTargetPosition
+++++++++++++++++++++
+
+Inicia las variables correspondientes a la posición y localización del Target. Además, crea los :Fantasmas: del Target (posiciones en la piscina, en los otros cuadrantes, donde podría encontrarse el Target).
+
+**Python:** ``initTargetPosition()``
+
+.. code-block:: python
+
+	def initTargetPosition(self):
+	        '''
+	        Inits the targetPosition calling the grabTargetPosition() method
+        	to select the position from the image. Also, updates other target
+        	related variables.
+	        '''
+
+on_mouse
+++++++++++++++++++++
+
+Evento de Mouse Default de OpenCV. En el se agrega un punto mas, vértice, a la posición del Target.
+
+**Python:** ``on_mouse(event, x, y, flag, param)``
+
+.. code-block:: python
+
+	def on_mouse(self,event, x, y, flag, param):
+	        '''
+	        Adds a new Vertex to the target's position at a Mouse's Click.
+		OpenCV’s Default Event.
+	        param -> Vertexes' Index.
+	        '''
+
+grabTargetPosition
+++++++++++++++++++++
+
+Método para seleccionar las cuatro esquinas del Target en la piscina. En caso de equivocarse, es posible realizar la selección nuevamente únicamente al escoger un nuevo (quinto) punto.
+
+**Python:** ``grabTargetPosition()``
+
+.. code-block:: python
+
+	def grabTargetPosition(self):
+	        '''
+	        Displays and image with the Target to select the position of its four
+        	vertices and store the tuples in the list targetPosition.
+	        '''
+
+checkCurrQuad
+++++++++++++++++++++
+
+Revisa el cuadrante en que cuerpos se encuentra.
+
+**Python:** ``checkCurrQuad(currPos)``
+
+.. code-block:: python
+
+	def checkCurrQuad(self, currPos):
+	        '''
+	        Finds in which Quadrant the currPos is found.
+        	Returns a Tuple with the Quadrant.
+	        '''
+
+updateCurrQuad
+++++++++++++++++++++
+
+Actualiza currQuad y prevQuad con el cuadrante en los cuales se encuentra(ba) el Ratón.
+
+**Python:** ``updateCurrQuad()``
+
+.. code-block:: python
+
+	def checkCurrQuad(self):
+	        '''
+	        Updates the current Quadrant with the current mouse position.
+	        '''
+
+updateTimesInQuad
+++++++++++++++++++++
+
+Actualiza el contador de numTimesInQuad en la posición del cuadrante que se encuentra el Ratón actualmente.
+
+**Python:** ``updateTimesInQuad()``
+
+.. code-block:: python
+
+	def updateTimesInQuad(self):
+	        '''
+	        Increase the num of frames in which the mouse is found in
+	        the current quadrant.
+	        '''
+
+checkEntryToTargetQuadrad
+++++++++++++++++++++
+
+Actualiza el numero de entradas al cuadrante actual en el que se encuentra el Ratón.
+
+**Python:** ``checkEntryToTargetQuadrad()``
+
+.. code-block:: python
+
+	def checkEntryToTargetQuadrad(self):
+	        '''
+	        Increase the number of entries to the Quadrant if the mouse
+        	crosses the boundary into the target's Quadrant.
+	        '''
+
+pointInGhosts
+++++++++++++++++++++
+
+Revisa si currPos se encuentra en alguno de los Fantasmas del Target o en el Target.
+
+**Python:** Bool : ``pointInGhosts()``
+
+.. code-block:: python
+
+	def pointInGhosts(self):
+	        '''
+	        Checks if currPos is inside in one of the Target' Ghosts or inside
+		the Target. Return True if it is inside, False otherwise.
+	        '''
+
+checkInTarget
+++++++++++++++++++++
+
+Llama al método que revisa si el Ratón se encuentra dentro del Target o de algunos de sus fantasmas.
+
+**Python:** Bool : ``checkInTarget()``
+
+.. code-block:: python
+
+	def checkInTarget(self):
+	        '''
+	        Checks if the mouse's current position is inside the target's space.
+	        Returns True if it is inside or False otherwise.
+	        '''
+
+updateInTarget
+++++++++++++++++++++
+
+Actualiza inTarget y prevInTarget llamando a checkInTarget().
+
+**Python:** ``updateInTarget()``
+
+.. code-block:: python
+
+	def updateInTarget(self):
+	        '''
+	        Updates the inTarget calling the checkInTarget method and storages
+        	the previous state in prevInTarget.
+	        '''
+
+checkTargetIsCrossed
+++++++++++++++++++++
+
+Revisa si el Target fue cruzado por el Ratón en esta iteración.
+
+**Python:** ``checkTargetIsCrossed()``
+
+.. code-block:: python
+
+	def checkTargetIsCrossed(self):
+	        '''
+	        Checks if the target is crossed and increments it if it is true. 
+        	Compares the last state of inTarget to find if now the mouse is outside 
+	        the target and previously was inside.
+	        '''
+
+updateCurrPos
+++++++++++++++++++++
+
+Actualiza la posición del Ratón.
+
+**Python:** ``updateCurrPos()``
+
+.. code-block:: python
+
+	def updateCurrPos(self):
+	        '''
+	        Updates the current position of the mouse in the pool.
+	        '''
+
+analyseMousePath
+++++++++++++++++++++
+
+Rutina principal que realiza el análisis del recorrido del ratón llamando a todas las funciones auxiliares y llenando las variables relacionadas.
+
+**Python:** ``analyseMousePath()``
+
+.. code-block:: python
+
+	def analyseMousePath(self):
+	        '''
+	        Performs the mouse path's analysis filling the related variables.
+	        '''
+
+showPath
+++++++++++++++++++++
+
+Rutina de Debug para ver el resultado final, con fantasmas y Target, del recorrido del Ratón. Muestra una imagen con esta información en un ambiente de OpenCV
+
+**Python:** ``showPath()``
+
+.. code-block:: python
+
+	def showPath(self):
+	        '''
+	        Shows the mouse's path, the target and the pool's sectors.
+	        '''
+
+getNumEntriesQuad
+++++++++++++++++++++
+
+Regresa el numero de Entradas al cuadrante del Target.
+
+**Python:** Int : ``getNumEntriesQuad()``
+
+getNumTimesInQuad
+++++++++++++++++++++
+
+Regresa la cantidad de Frames en el cuadrante del Target.
+
+**Python:** Dict : ``getNumTimesInQuad()``
+
+getTimeInQuad
+++++++++++++++++++++
+
+Regresa la cantidad de segundos en el cuadrante del Target.
+
+**Python:** Dict : ``getTimeInQuad()``
+
+getNumTargetCrosses
+++++++++++++++++++++
+
+Regresa la cantidad de cruces sobre el Target.
+
+**Python:** Dict : ``getNumTargetCrosses()``
+
+getTotalTime
+++++++++++++++++++++
+
+Regresa la cantidad total de segundos que dura el video.
+
+**Python:** Dict : ``getTotalTime()``
+
+generateReport
+++++++++++++++++++++
+
+Genera el Reporte en un .txt con las variables requeridas en la prueba de Transferencia.
+
+**Python:** Dict : ``generateReport()``

@@ -1,0 +1,695 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>BasicClases.py &mdash; OpenFieldTest 2.1.4 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.1.4',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="OpenFieldTest 2.1.4 documentation" href="index.html" />
+    <link rel="up" title="OpenField’s Classes" href="classes.html" />
+    <link rel="next" title="camTest.py" href="camTest.html" />
+    <link rel="prev" title="OpenField’s Classes" href="classes.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="camTest.html" title="camTest.py"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="classes.html" title="OpenField’s Classes"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">OpenFieldTest 2.1.4 documentation</a> &raquo;</li>
+          <li><a href="classes.html" accesskey="U">OpenField&#8217;s Classes</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="basicclases-py">
+<span id="classes"></span><h1>BasicClases.py<a class="headerlink" href="#basicclases-py" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="position-object">
+<h2>Position(object)<a class="headerlink" href="#position-object" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Position</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+   <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">   Position Class with the information of the 2D coordinates (x,y).</span>
+<span class="sd">   &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+<p><strong>Class Attributes:</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Type</th>
+<th class="head">Name</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>float</td>
+<td>x</td>
+</tr>
+<tr class="row-odd"><td>float</td>
+<td>y</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="position">
+<h3><strong>Position</strong><a class="headerlink" href="#position" title="Permalink to this headline">¶</a></h3>
+<p>Position constructor.</p>
+<p><strong>Python:</strong> <tt class="docutils literal"><span class="pre">Position(x,y)</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+     <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">     Init the position instance w/</span>
+<span class="sd">      x -&gt; float x axis position</span>
+<span class="sd">      y -&gt; float y axis position</span>
+<span class="sd">     &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="moveposition">
+<h3>movePosition<a class="headerlink" href="#moveposition" title="Permalink to this headline">¶</a></h3>
+<p>Move the current Position a (dx,dy) distance.</p>
+<p><strong>Python:</strong> <tt class="docutils literal"><span class="pre">movePosition(dx,dy)</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">movePosition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">dx</span><span class="p">,</span><span class="n">dy</span><span class="p">):</span>
+     <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">     Move the current Position a (dx,dy) distance.</span>
+<span class="sd">      dx -&gt; float distance to move the Position in the x axis</span>
+<span class="sd">      dy -&gt; float distance to move the Position in the y axis</span>
+<span class="sd">      return a new Position instances</span>
+<span class="sd">     &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="getdistance">
+<h3>getDistance<a class="headerlink" href="#getdistance" title="Permalink to this headline">¶</a></h3>
+<p>Calculates the distance between two points.</p>
+<p><strong>Python:</strong> <tt class="docutils literal"><span class="pre">getDistance(other)</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">getDistance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Computes the euclidean distances between &#39;self&#39; and other.</span>
+<span class="sd">            other -&gt; Position object</span>
+<span class="sd">        return float w/ the distance between points.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="getx">
+<h3>getX<a class="headerlink" href="#getx" title="Permalink to this headline">¶</a></h3>
+<p>Return x position.</p>
+<p><strong>Python:</strong> Int : <tt class="docutils literal"><span class="pre">getX()</span></tt></p>
+</div>
+<div class="section" id="gety">
+<h3>getY<a class="headerlink" href="#gety" title="Permalink to this headline">¶</a></h3>
+<p>Return y position.</p>
+<p><strong>Python:</strong> Int : <tt class="docutils literal"><span class="pre">getY()</span></tt></p>
+</div>
+</div>
+<div class="section" id="mouse-object">
+<h2>Mouse(object)<a class="headerlink" href="#mouse-object" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="mouse">
+<h3><strong>Mouse</strong><a class="headerlink" href="#mouse" title="Permalink to this headline">¶</a></h3>
+<p>Mouse Class constructor</p>
+<p><strong>Python:</strong> <tt class="docutils literal"><span class="pre">Mouse(name,</span> <span class="pre">color,</span> <span class="pre">pos)</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="n">color</span><span class="p">,</span><span class="n">pos</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Init a &#39;Mouse&#39; instance with:</span>
+<span class="sd">            name -&gt; string</span>
+<span class="sd">            color -&gt; string</span>
+<span class="sd">            pos -&gt; a Position class instance w/ (x,y)</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+<p><strong>Class Attributes:</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Type</th>
+<th class="head">Name</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>String</td>
+<td>name</td>
+</tr>
+<tr class="row-odd"><td>String</td>
+<td>color</td>
+</tr>
+<tr class="row-even"><td>Position</td>
+<td>pos</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="updatepos">
+<h3>updatePos<a class="headerlink" href="#updatepos" title="Permalink to this headline">¶</a></h3>
+<p>Updates the mouse&#8217;s position</p>
+<p><strong>Python:</strong> <tt class="docutils literal"><span class="pre">-</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">updatePos</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">newPos</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Updates the current position of the Mouse with:</span>
+<span class="sd">            newPos -&gt; the new Position class instance (x,y)</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="getname">
+<h3>getName<a class="headerlink" href="#getname" title="Permalink to this headline">¶</a></h3>
+<p>Return the mouse&#8217;s name.</p>
+<p><strong>Python:</strong> String : <tt class="docutils literal"><span class="pre">getName()</span></tt></p>
+</div>
+<div class="section" id="getposition">
+<h3>getPosition<a class="headerlink" href="#getposition" title="Permalink to this headline">¶</a></h3>
+<p>Return the mouse&#8217;s position.</p>
+<p><strong>Python:</strong> Position : <tt class="docutils literal"><span class="pre">getPosition()</span></tt></p>
+</div>
+<div class="section" id="getcolor">
+<h3>getColor<a class="headerlink" href="#getcolor" title="Permalink to this headline">¶</a></h3>
+<p>Return the mouse&#8217;s color.</p>
+<p><strong>Python:</strong> String : <tt class="docutils literal"><span class="pre">getColor</span></tt></p>
+</div>
+</div>
+<div class="section" id="colormouse-mouse">
+<h2>ColorMouse(Mouse)<a class="headerlink" href="#colormouse-mouse" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">ColorMouse</span><span class="p">(</span><span class="n">Mouse</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    ColorMouse class with serves as a template class for WhiteMouse and</span>
+<span class="sd">    BlackMouse, both subclasses of Mouse.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+<div class="section" id="colormouse">
+<h3><strong>ColorMouse</strong><a class="headerlink" href="#colormouse" title="Permalink to this headline">¶</a></h3>
+<p>ColorMouse Class Constructor.</p>
+<p><strong>Python:</strong> <tt class="docutils literal"><span class="pre">ColorMouse(name,</span> <span class="pre">color,</span> <span class="pre">pos)</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">pos</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Calls the super class constructor without any modification.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="findmouse">
+<h3>findMouse<a class="headerlink" href="#findmouse" title="Permalink to this headline">¶</a></h3>
+<p>Template method for different color mouse routines.</p>
+<p><strong>Python:</strong> Mat : <tt class="docutils literal"><span class="pre">findMouse(image)</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">findMouse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Abstract method to override in the children classes. It finds</span>
+<span class="sd">        the position of the desired mouse by parsing an image.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="whitemouse-colormouse">
+<h2>WhiteMouse(ColorMouse)<a class="headerlink" href="#whitemouse-colormouse" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">WhiteMouse</span><span class="p">(</span><span class="n">ColorMouse</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    WhiteMouse class which implements a white mouse.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+<p><strong>Class Attributes:</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Type</th>
+<th class="head">Name</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Int</td>
+<td>thMouse</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="whitemouse">
+<h3><strong>WhiteMouse</strong><a class="headerlink" href="#whitemouse" title="Permalink to this headline">¶</a></h3>
+<p>Default class constructor.</p>
+<p><strong>Python:</strong> <tt class="docutils literal"><span class="pre">WhiteMouse(pos,thMouse</span> <span class="pre">=</span> <span class="pre">100)</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">pos</span><span class="p">,</span><span class="n">thMouse</span> <span class="o">=</span> <span class="mi">100</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        WhiteMouse constructor.</span>
+<span class="sd">            pos &lt;- Initial position of the mouse</span>
+<span class="sd">            thMouse &lt;- Segmentation threshold (default: 100)</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id1">
+<h3>findMouse<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Implemented Abstract Static Method for the segmentation of the mouse.</p>
+<p><strong>Python:</strong> Image : <tt class="docutils literal"><span class="pre">findMouse(gray,</span> <span class="pre">thMouse</span> <span class="pre">=</span> <span class="pre">100)</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">findMouse</span><span class="p">(</span><span class="n">gray</span><span class="p">,</span> <span class="n">thMouse</span> <span class="o">=</span> <span class="mi">100</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Segments the gray-scale image &#39;gray&#39; to detect where is the mouse in</span>
+<span class="sd">        the image.</span>
+<span class="sd">        returns image with the segmentation&#39;s result.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="blackmouse-colormouse">
+<h2>BlackMouse(ColorMouse)<a class="headerlink" href="#blackmouse-colormouse" title="Permalink to this headline">¶</a></h2>
+<p><strong>Not implemented yet!!!*</strong></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">BlackMouse</span><span class="p">(</span><span class="n">ColorMouse</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    BlackMouse class which implements a black mouse.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+<div class="section" id="blackmouse">
+<h3><strong>BlackMouse</strong><a class="headerlink" href="#blackmouse" title="Permalink to this headline">¶</a></h3>
+<p>Default class constructor.</p>
+<p><strong>Python:</strong> <tt class="docutils literal"><span class="pre">BlackMouse(pos,thMouse</span> <span class="pre">=</span> <span class="pre">100)</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">pos</span><span class="p">,</span><span class="n">thMouse</span> <span class="o">=</span> <span class="mi">100</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        BlackMouse constructor.</span>
+<span class="sd">            pos &lt;- Initial position of the mouse</span>
+<span class="sd">            thMouse &lt;- Segmentation threshold (default: 100)</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>findMouse<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>Implemented Abstract Static Method for the segmentation of the mouse.</p>
+<p><strong>Python:</strong> Image : <tt class="docutils literal"><span class="pre">findMouse(gray,</span> <span class="pre">thMouse</span> <span class="pre">=</span> <span class="pre">100)</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">findMouse</span><span class="p">(</span><span class="n">gray</span><span class="p">,</span> <span class="n">thMouse</span> <span class="o">=</span> <span class="mi">100</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Segments the gray-scale image &#39;gray&#39; to detect where is the mouse in</span>
+<span class="sd">        the image.</span>
+<span class="sd">        returns image with the segmentation&#39;s result.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="tile-object">
+<h2>Tile(object)<a class="headerlink" href="#tile-object" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Tile</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Each of the delimeted squares inside the Field used for the test.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+<p><strong>Class Attributes:</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="43%" />
+<col width="57%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Type</th>
+<th class="head">Name</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Position</td>
+<td>upperCorner</td>
+</tr>
+<tr class="row-odd"><td>Int</td>
+<td>width</td>
+</tr>
+<tr class="row-even"><td>Int</td>
+<td>height</td>
+</tr>
+<tr class="row-odd"><td>List[Int]</td>
+<td>bounds</td>
+</tr>
+<tr class="row-even"><td>Int</td>
+<td>timesInTile</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="tile">
+<h3><strong>Tile</strong><a class="headerlink" href="#tile" title="Permalink to this headline">¶</a></h3>
+<p>Default class constructor.</p>
+<p><strong>Python:</strong> <tt class="docutils literal"><span class="pre">Tile(upperCorner,</span> <span class="pre">width,</span> <span class="pre">height)</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">upperCorner</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Init the Tile object w/</span>
+<span class="sd">            upperCorner -&gt; Position instance with the upper corner point of the tile</span>
+<span class="sd">            width -&gt; float Width of the Tile</span>
+<span class="sd">            height -&gt; float Height of the Tile</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="checktile">
+<h3>checkTile<a class="headerlink" href="#checktile" title="Permalink to this headline">¶</a></h3>
+<p>Wrapper method to find if the mouse is over the tile.</p>
+<p><strong>Python:</strong> Boolean : <tt class="docutils literal"><span class="pre">checkTile(pos)</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">checkTile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">pos</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Checks if the Position &#39;pos&#39; is inside the Tile and if it is true</span>
+<span class="sd">        increase timesInTile.</span>
+<span class="sd">        return True if pos is inside, False otherwise.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="isintile">
+<h3>isInTile<a class="headerlink" href="#isintile" title="Permalink to this headline">¶</a></h3>
+<p>Returns true if the mouse is inside the tile.</p>
+<p><strong>Python:</strong> Boolean : <tt class="docutils literal"><span class="pre">isInTile(pos)</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">isInTile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">pos</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Returns True if &#39;pos&#39; is inside the Tile or False otherwise.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="gettimesintile">
+<h3>getTimesInTile<a class="headerlink" href="#gettimesintile" title="Permalink to this headline">¶</a></h3>
+<p>Return the amount of time in the Tile</p>
+<p><strong>Python:</strong> Int : <tt class="docutils literal"><span class="pre">getTimesInTile()</span></tt></p>
+</div>
+<div class="section" id="gettilebounds">
+<h3>getTileBounds<a class="headerlink" href="#gettilebounds" title="Permalink to this headline">¶</a></h3>
+<p>Return list with the four corner positions that delimit the tile.</p>
+<p><strong>Python:</strong> List[Int] : <tt class="docutils literal"><span class="pre">getTileBounds()</span></tt></p>
+</div>
+<div class="section" id="settimesintile">
+<h3>setTimesInTile<a class="headerlink" href="#settimesintile" title="Permalink to this headline">¶</a></h3>
+<p>Set an arbitrary number of &#8216;times&#8217; in timesInTile.</p>
+<p><strong>Python:</strong> <tt class="docutils literal"><span class="pre">setTimesInTile(times)</span></tt></p>
+</div>
+<div class="section" id="cleartimesintile">
+<h3>clearTimesInTile<a class="headerlink" href="#cleartimesintile" title="Permalink to this headline">¶</a></h3>
+<p>Reset timesInTile.</p>
+<p><strong>Python:</strong> Int : <tt class="docutils literal"><span class="pre">clearTimesInTile()</span></tt></p>
+</div>
+</div>
+<div class="section" id="field-object">
+<h2>Field(object)<a class="headerlink" href="#field-object" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Field</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Field Class that contains the test Mouse and a set of Tiles which conform</span>
+<span class="sd">    the entire Field.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+<div class="section" id="field">
+<h3><strong>Field</strong><a class="headerlink" href="#field" title="Permalink to this headline">¶</a></h3>
+<p>Default class constructor.</p>
+<p><strong>Python:</strong> <tt class="docutils literal"><span class="pre">Field(numCols,</span> <span class="pre">numRows,</span> <span class="pre">gridWidth,</span> <span class="pre">gridHeight,</span> <span class="pre">mouse)</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">numCols</span><span class="p">,</span> <span class="n">numRows</span><span class="p">,</span> <span class="n">gridWidth</span><span class="p">,</span> <span class="n">gridHeight</span><span class="p">,</span> <span class="n">mouse</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Init the Field Object w/ the number of tiles and the test mouse.</span>
+<span class="sd">            numCols -&gt; int with the number of colums in the grid arragement</span>
+<span class="sd">            numRows -&gt; int with the number of rows in the grid arragement</span>
+<span class="sd">            gridWidth -&gt; int width of each of the tiles in the grid</span>
+<span class="sd">            gridHeight -&gt; int heigh of each of the tiles in the grid</span>
+<span class="sd">            mouse -&gt; Mouse instance that represent the test subject.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+<p><strong>Class Attributes:</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="43%" />
+<col width="57%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Type</th>
+<th class="head">Name</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Int</td>
+<td>gridWidth</td>
+</tr>
+<tr class="row-odd"><td>Int</td>
+<td>gridHeigtht</td>
+</tr>
+<tr class="row-even"><td>Int</td>
+<td>rightBound</td>
+</tr>
+<tr class="row-odd"><td>Int</td>
+<td>lowerBound</td>
+</tr>
+<tr class="row-even"><td>Mouse</td>
+<td>testSubject</td>
+</tr>
+<tr class="row-odd"><td>Int</td>
+<td>numCols</td>
+</tr>
+<tr class="row-even"><td>Int</td>
+<td>numRows</td>
+</tr>
+<tr class="row-odd"><td>Int</td>
+<td>numOfTiles</td>
+</tr>
+<tr class="row-even"><td>Dict(T,I)</td>
+<td>tiles</td>
+</tr>
+<tr class="row-odd"><td>Dict(T,I)</td>
+<td>timesInTiles</td>
+</tr>
+<tr class="row-even"><td>Tile</td>
+<td>currTile</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id3">
+<h3>checkTile<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>Wrapper method to find if the mouse is over the tile.</p>
+<p><strong>Python:</strong> Boolean : <tt class="docutils literal"><span class="pre">checkTile(pos)</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">checkTile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">pos</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Checks if the Position &#39;pos&#39; is inside the Tile and if it is true</span>
+<span class="sd">        increase timesInTile.</span>
+<span class="sd">        return True if pos is inside, False otherwise.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="isinfield">
+<h3>isInField<a class="headerlink" href="#isinfield" title="Permalink to this headline">¶</a></h3>
+<p>Returns true if the mouse is inside the field.</p>
+<p><strong>Python:</strong> Boolean : <tt class="docutils literal"><span class="pre">isInField(pos)</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">isInField</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pos</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Checks if it is a valid position inside the field.</span>
+<span class="sd">        returns True if pos is inside Field or False otherwise.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="updatemouse">
+<h3>updateMouse<a class="headerlink" href="#updatemouse" title="Permalink to this headline">¶</a></h3>
+<p>Returns true if the mouse is inside the field.</p>
+<p><strong>Python:</strong> Position : <tt class="docutils literal"><span class="pre">updateMouse(newPos)</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">updateMouse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">newPos</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Wrapper function for updates the &#39;testSubject&#39; position in the maze.</span>
+<span class="sd">            newPos &lt;- Position object to where the mouse is going to move.</span>
+<span class="sd">        return Position w/ the new localization of the mouse</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="checkalltiles">
+<h3>checkAllTiles<a class="headerlink" href="#checkalltiles" title="Permalink to this headline">¶</a></h3>
+<p>Returns the tile in which the mouse is found.</p>
+<p><strong>Python:</strong> Tile : <tt class="docutils literal"><span class="pre">checkAllTiles()</span></tt></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">checkAllTiles</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Checks all tiles in the field to find in which one the mouse is and</span>
+<span class="sd">        increase the counter for continuos stays in the same tile. Assumes that</span>
+<span class="sd">        the mouse is a valid position inside the field.</span>
+<span class="sd">        Returns current tile</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="getnumoftiles">
+<h3>getNumOfTiles<a class="headerlink" href="#getnumoftiles" title="Permalink to this headline">¶</a></h3>
+<p>Return the amount of tiles in field.</p>
+<p><strong>Python:</strong> Int : <tt class="docutils literal"><span class="pre">getNumOfTiles()</span></tt></p>
+</div>
+<div class="section" id="gettestsubject">
+<h3>getTestSubject<a class="headerlink" href="#gettestsubject" title="Permalink to this headline">¶</a></h3>
+<p>Return test subject object.</p>
+<p><strong>Python:</strong> Mouse : <tt class="docutils literal"><span class="pre">getTestSubject()</span></tt></p>
+</div>
+<div class="section" id="gettiles">
+<h3>getTiles<a class="headerlink" href="#gettiles" title="Permalink to this headline">¶</a></h3>
+<p>Return available tiles.</p>
+<p><strong>Python:</strong> Dictionary[(x,y),Tile] : <tt class="docutils literal"><span class="pre">getTiles(times)</span></tt></p>
+</div>
+<div class="section" id="gettimesintiles">
+<h3>getTimesInTiles<a class="headerlink" href="#gettimesintiles" title="Permalink to this headline">¶</a></h3>
+<p>Return timesInTiles</p>
+<p><strong>Python:</strong> Dictionary[(x,y), Int] : <tt class="docutils literal"><span class="pre">getTimesInTiles()</span></tt></p>
+</div>
+<div class="section" id="getcurrtile">
+<h3>getCurrTile<a class="headerlink" href="#getcurrtile" title="Permalink to this headline">¶</a></h3>
+<p>Return currTile</p>
+<p><strong>Python:</strong> Tile : <tt class="docutils literal"><span class="pre">getCurrTile()</span></tt></p>
+</div>
+<div class="section" id="getfieldbounds">
+<h3>getFieldBounds<a class="headerlink" href="#getfieldbounds" title="Permalink to this headline">¶</a></h3>
+<p>Return right bound and lower bound.</p>
+<p><strong>Python:</strong> List : <tt class="docutils literal"><span class="pre">getFieldBounds()</span></tt></p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">BasicClases.py</a><ul>
+<li><a class="reference internal" href="#position-object">Position(object)</a><ul>
+<li><a class="reference internal" href="#position"><strong>Position</strong></a></li>
+<li><a class="reference internal" href="#moveposition">movePosition</a></li>
+<li><a class="reference internal" href="#getdistance">getDistance</a></li>
+<li><a class="reference internal" href="#getx">getX</a></li>
+<li><a class="reference internal" href="#gety">getY</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mouse-object">Mouse(object)</a><ul>
+<li><a class="reference internal" href="#mouse"><strong>Mouse</strong></a></li>
+<li><a class="reference internal" href="#updatepos">updatePos</a></li>
+<li><a class="reference internal" href="#getname">getName</a></li>
+<li><a class="reference internal" href="#getposition">getPosition</a></li>
+<li><a class="reference internal" href="#getcolor">getColor</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#colormouse-mouse">ColorMouse(Mouse)</a><ul>
+<li><a class="reference internal" href="#colormouse"><strong>ColorMouse</strong></a></li>
+<li><a class="reference internal" href="#findmouse">findMouse</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#whitemouse-colormouse">WhiteMouse(ColorMouse)</a><ul>
+<li><a class="reference internal" href="#whitemouse"><strong>WhiteMouse</strong></a></li>
+<li><a class="reference internal" href="#id1">findMouse</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#blackmouse-colormouse">BlackMouse(ColorMouse)</a><ul>
+<li><a class="reference internal" href="#blackmouse"><strong>BlackMouse</strong></a></li>
+<li><a class="reference internal" href="#id2">findMouse</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tile-object">Tile(object)</a><ul>
+<li><a class="reference internal" href="#tile"><strong>Tile</strong></a></li>
+<li><a class="reference internal" href="#checktile">checkTile</a></li>
+<li><a class="reference internal" href="#isintile">isInTile</a></li>
+<li><a class="reference internal" href="#gettimesintile">getTimesInTile</a></li>
+<li><a class="reference internal" href="#gettilebounds">getTileBounds</a></li>
+<li><a class="reference internal" href="#settimesintile">setTimesInTile</a></li>
+<li><a class="reference internal" href="#cleartimesintile">clearTimesInTile</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#field-object">Field(object)</a><ul>
+<li><a class="reference internal" href="#field"><strong>Field</strong></a></li>
+<li><a class="reference internal" href="#id3">checkTile</a></li>
+<li><a class="reference internal" href="#isinfield">isInField</a></li>
+<li><a class="reference internal" href="#updatemouse">updateMouse</a></li>
+<li><a class="reference internal" href="#checkalltiles">checkAllTiles</a></li>
+<li><a class="reference internal" href="#getnumoftiles">getNumOfTiles</a></li>
+<li><a class="reference internal" href="#gettestsubject">getTestSubject</a></li>
+<li><a class="reference internal" href="#gettiles">getTiles</a></li>
+<li><a class="reference internal" href="#gettimesintiles">getTimesInTiles</a></li>
+<li><a class="reference internal" href="#getcurrtile">getCurrTile</a></li>
+<li><a class="reference internal" href="#getfieldbounds">getFieldBounds</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="classes.html"
+                        title="previous chapter">OpenField&#8217;s Classes</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="camTest.html"
+                        title="next chapter">camTest.py</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/basicClases.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="camTest.html" title="camTest.py"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="classes.html" title="OpenField’s Classes"
+             >previous</a> |</li>
+        <li><a href="index.html">OpenFieldTest 2.1.4 documentation</a> &raquo;</li>
+          <li><a href="classes.html" >OpenField&#8217;s Classes</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Mario Coutino.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

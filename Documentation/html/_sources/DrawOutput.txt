@@ -1,0 +1,91 @@
+.. _classes:
+
+DrawOutput.py
+====================
+
+DrawOutput(object)
+--------------------
+
+.. code-block:: python
+
+	class DrawOutput(object):
+	   '''
+	   Drawer Class. It is used to create the output image with the path, quadrants
+	   and target.
+	   '''
+	
+**Atributos de la Clase:**
+
+Int	: rad
+Img	: img
+Tupla	: cen
+Int	: dX
+Int	: dY
+Array	: delta
+Array	: target
+Img	: drawImg
+Array	: path
+
+
+**DrawOutput**
+++++++++++++++++++++
+
+Constructor de Clase DrawOutput
+
+**Python:** ``DrawOutput(rad, cen, target, path)``
+
+.. code-block:: python
+
+    def __init__(self,rad, cen, target, path:
+	 '''
+	 Inits the DrawOutput class and performs the the translation of the points to
+         the center of the image.
+	 @param rad Int w/ the radio of the pool	
+	 @param cen Int w/ the centre of the pool
+	 @param target List w/ the vertices of the target
+	 @param Array w/ the mouse’s path
+	 '''
+	
+showDraw
+++++++++++++++++++++
+
+Muestra la imagen que se desea guardar. Permite realizar modificaciones para seleccionar los diferentes objetos que se incluirán en la imagen.
+
+Teclas de Manipulación:
+
+**ESC** : Salir
+
+**T**	: Dibujar Target
+
+**P**	: Dibujar Path
+
+**C**	: Dibujar Cuadrantes
+
+**R**	: Reiniciar Imagen
+
+**S**	: Salvar Imagen
+
+**Python:** ``showDraw()``
+
+.. code-block:: python
+
+    def calculateRho(self):
+	 '''
+	 Main Drawing routine. It displays the image and it allows to perform
+         modification to the desired output image.
+	 '''
+	
+saveDraw
+++++++++++++++++++++
+
+Guarda la imagen en la ruta default en formato PNG.
+Regresa True si todo fue realizado exitosamente.
+
+**Python:** Bool : ``saveDraw()``
+
+.. code-block:: python
+
+	def saveDraw(self):
+	        '''
+		Save image to the default directory in PNG format.
+		'''

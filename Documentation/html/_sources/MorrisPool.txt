@@ -1,0 +1,113 @@
+.. _classes:
+
+MorrisPool.py
+====================
+
+MorrisPool(object)
+--------------------
+
+.. code-block:: python
+
+	class Position(object):
+	   '''
+	   Main class for the MorrisPool's experiment analysis.
+	   '''
+	
+**Atributos de la Clase:**
+
+Float	: tinaLenght
+Lista	: videoSequence
+Int	: videoLenght
+Lista	: mousePath
+Lista	: mousePathA
+Float	: poolRadio
+Float	: poolCenter
+Int	: seqIndex
+Int	: convFactor
+Img	: baseFrame
+Img	: poolImg
+Float	: realDistance	
+
+**MorrisPool**
+++++++++++++++++++++
+
+Constructor de la Clase MorrisPool
+
+**Python:** ``MorrisPool(videoSequence, initPoint, endPoint)``
+
+.. code-block:: python
+
+    def __init__(self,videoSequence, initPoint, endPoint):
+	 '''
+	 Init the MorrisPool class. It takes the original video -videoSequence-
+         and cuts the frames in the interval (initPoint, endPoint).
+         videoSequence -> List w/ frames
+         initPoint  -> Int w/ starting point of the video
+         endPoint -> Int w/ ending point of the video
+	 '''
+	
+initPoolPosition
+++++++++++++++++++++
+
+Comienza el pre-poceso para adquirir la informaci[on de la piscina. 
+
+**Python:** ``initPoolPosition()``
+
+.. code-block:: python
+
+    def initPoolPosition(self):
+	 '''
+	 Inits the preprocessing of the video. It retrieves all the geometric
+         information of the pool to start the analysis.
+	 '''
+	
+startTracking
+++++++++++++++++++++
+
+Comienza el análisis del video. Permite observar el resultado (imagen sementada) si se desea.
+
+**Python:** ``startTracking(showResult)``
+
+.. code-block:: python
+
+	def startTracking(self, showResult):
+	        '''
+	        Performs the video's analysis. If it is desired, the segmented image can
+		be shown by using the variable: showResult.
+        	showResult -> Bool w/ True if the image will be displayed or False
+		otherwise
+	        '''
+getRealDistance
+++++++++++++++++++++
+
+Regresa la distancia recorrida por el ratón en centímetros.
+
+**Python:** Float : ``getRealDistance()``
+
+getMousePath
+++++++++++++++++++++
+
+Regresa la trayectoria recorrida por el raton como una lista con pares ordenados en el formato de la librería Numpy.
+
+**Python:** Lista : ``getMousePath()``
+
+getPoolPosition
+++++++++++++++++++++
+
+Regresa el centro y el radio de la piscina detectada en el video en forma de Tupla: (poolCenter, poolRadio)
+
+**Python:** Tupla : ``getPoolPosition()``
+
+getConvFactor
+++++++++++++++++++++
+
+Regresa el factor de conversión calculado para convertir pixeles a centímetros en el video actual.
+
+**Python:** Float : ``getConvFactor()``
+
+getVideoTimeInS
+++++++++++++++++++++
+
+Regresa el tiempo del video, ya recortado, en segundos.
+
+**Python:** Float : ``getVideoTimeInS()``

@@ -26,9 +26,15 @@ import numpy as np
 from datetime import datetime
 
 class DrawOutput:
+    '''
+    Drawer Class. It is used to create the output image with the path, quadrants and 
+    target.
+    '''
     
     def __init__(self, rad, cen, target, path):
         '''
+        Initis the DrawOutput class and performs the the translation of the points to
+        the center of the image.
         '''
         self.rad = int(round(rad))
         #self.cen = int(round(cen[0])), int(round(cen[1]))
@@ -48,6 +54,8 @@ class DrawOutput:
         
     def showDraw(self):
         '''
+        Main Drawing routine. It displays the image and it allows to perform
+        modification to the desired output image.
         '''
         while(True):
             cv2.imshow('Path\'s Image',self.drawImg)
@@ -80,6 +88,7 @@ class DrawOutput:
         
     def saveDraw(self):
         '''
+        Save image to the default directory in PNG format.
         '''
         i = datetime.now()
         fileName = 'Transfer_Mouse' + '-' + i.strftime('%Y-%m-%d_%H;%M;%S')

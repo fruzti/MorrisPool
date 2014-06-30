@@ -1,0 +1,95 @@
+.. _classes:
+
+VideoFile.py
+====================
+
+VideoFile(object)
+--------------------
+
+.. code-block:: python
+
+	class VideoFile(object):
+	   '''
+	   Class which contains the video information for the current
+    	   sesion.
+	   '''
+	
+**Atributos de la Clase:**
+
+cv2.VideoCapture()	:	videoFile
+
+Int	:	fps
+
+Int	:	videoLenght
+
+Lista	:	videoSequence
+
+
+**VideoFile**
+++++++++++++++++++++
+
+Constructor de VideoFile
+
+**Python:** ``VideoFile(fileName)``
+
+.. code-block:: python
+
+    def __init__(self,fileName):
+	 '''
+	 Inits the object, creating a new VideoCapture from 'fileName'.
+         After creating, a list w/ all the video's frame is allocated.
+         The VideoCapture object is release to save memory after the
+         video sequence is created.
+            fileName -> string w/ the video's path	
+	 '''
+	
+convertVideoToSequence
+++++++++++++++++++++
+
+Convierte el video en una secuencia (lista) de frames.
+
+**Python:** Lista : ``convertVideoToSequence()``
+
+.. code-block:: python
+
+    def convertVideoToSequence(self):
+	 '''
+	 Strip all the frames from the VideoCapture object and puts
+         them into videoSequence.
+         return list w/ self.videoFile's frames.
+	 '''
+	
+showVideo
+++++++++++++++++++++
+
+Metodo para propósitos de Debug que muestra la secuencia de video en un ambiente de OpenCV.
+
+**Python:** ``showVideo()``
+
+.. code-block:: python
+
+	def showVideo(self):
+	        '''
+	        Debug method to see the videoSequence in an OpenCV
+        	environment.
+	        '''
+getVideoSequence
+++++++++++++++++++++
+
+Regresa la secuencia de video.
+
+**Python:** Lista : ``getVideoSequence()``
+
+getVideoFPS
+++++++++++++++++++++
+
+Regresa los FPS del video.
+
+**Python:** Int : ``getVideoFPS()``
+
+getVideoLenght
+++++++++++++++++++++
+
+Regresa la cantidad de Frames que tiene el video.
+
+**Python:** Int : ``getVideoLenght()``
